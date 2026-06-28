@@ -3,7 +3,6 @@
 import { Copy, Check } from "lucide-react";
 import { useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
-import { cn } from "@/lib/utils";
 
 export function CopyLink() {
   const t = useTranslations("share");
@@ -20,21 +19,32 @@ export function CopyLink() {
   return (
     <button
       onClick={handleCopy}
-      className={cn(
-        "flex items-center gap-[var(--spacing-sm)] rounded-[var(--radius-pill)] px-[var(--spacing-md)] py-[var(--spacing-sm)] backdrop-blur-[6.25px] transition-all",
-        copied
-          ? "bg-[var(--color-accent)]/20 text-[var(--color-accent)]"
-          : "text-[var(--color-content-secondary)] hover:text-[var(--color-content)]",
-      )}
+      className="group flex items-center gap-2 transition-all duration-300"
+      style={{
+        fontFamily: "var(--font-body)",
+        fontSize: "13px",
+        fontWeight: 600,
+        letterSpacing: "0.05em",
+        textTransform: "uppercase",
+        color: copied ? "#C084F0" : "#E0E0FF",
+        opacity: copied ? 1 : 0.7,
+        background: "none",
+        border: "none",
+        cursor: "pointer",
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.opacity = "1";
+      }}
+      onMouseLeave={(e) => {
+        if (!copied) (e.currentTarget as HTMLElement).style.opacity = "0.7";
+      }}
     >
       {copied ? (
         <Check className="h-4 w-4" />
       ) : (
         <Copy className="h-4 w-4" />
       )}
-      <span className="font-[family-name:var(--font-body)] text-[var(--text-body)]">
-        {copied ? t("copied") : t("copyLink")}
-      </span>
+      <span>{copied ? t("copied") : t("copyLink")}</span>
     </button>
   );
 }

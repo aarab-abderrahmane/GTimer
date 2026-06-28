@@ -8,7 +8,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <CountdownSection
       heading={t("heading")}
-      subheading={t("subheading")}
       releaseDate={t("releaseDate")}
     />
   );

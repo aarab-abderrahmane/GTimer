@@ -1,8 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { AudioMenu } from "@/components/audio/audio-menu";
+
+const LocalizationMenu = dynamic(
+  () => import("@/components/localization/localization-menu").then((m) => ({ default: m.LocalizationMenu })),
+  { ssr: false },
+);
 
 const links = [
   { href: "", label: "home" },
@@ -40,8 +47,17 @@ export function Nav() {
         G<span style={{ color: "#C084F0" }}>TIMER</span>
       </Link>
 
+      {/* Center Controls */}
+      <div
+        className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2"
+        style={{ zIndex: 10 }}
+      >
+        <LocalizationMenu />
+        <AudioMenu />
+      </div>
+
       {/* Nav links */}
-      <div className="flex items-center" style={{ gap: "32px" }}>
+      <div className="flex items-center" style={{ gap: "32px", position: "relative", zIndex: 10 }}>
         {links.map(({ href, label }) => {
           const isActive =
             href === ""
