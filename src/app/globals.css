@@ -1,121 +1,186 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* ─── GTA VI Design Tokens ─────────────────────────────────────── */
 @theme inline {
-  --color-surface: #111117;
-  --color-surface-alt: #0c0d1b;
-  --color-content: #ffffff;
-  --color-content-secondary: #ccc2f5;
-  --color-accent: #adb5ff;
-  --color-accent-warm: #ffb2c6;
-  --color-accent-yellow: #fff9cb;
-  --color-accent-sky: #b8e8ff;
-  --color-accent-violet: #cebff8;
-  --color-border: #e5ddff;
-  --color-border-subtle: #2f2e52;
-  --color-button-surface: #fdfbff;
-  --color-overlay: rgba(17, 17, 23, 0.6);
+  /* Backgrounds */
+  --color-bg-deep:        #060610;
+  --color-bg-primary:     #0d0d1e;
+  --color-bg-elevated:    #1a1030;
+  --color-bg-forest:      #0a1f0f;
 
-  --font-display: "Cinzel", serif;
-  --font-display-condensed: "Cinzel", serif;
-  --font-body: "Cinzel", serif;
+  /* Accents */
+  --color-lavender:       #C084F0;
+  --color-gold:           #FFD700;
+  --color-amber:          #F5B800;
+  --color-pink:           #FF6B9D;
+  --color-teal:           #00D4AA;
 
-  --text-hero: 102.4px;
-  --text-hero--line-height: 88.064px;
-  --text-hero--letter-spacing: -1.28px;
-  --text-hero--font-weight: 700;
+  /* Text */
+  --color-text-primary:   #FFFFFF;
+  --color-text-body:      #E0E0FF;
+  --color-text-caption:   #9999BB;
 
-  --text-headline-large: 80.4571px;
-  --text-headline-large--line-height: 72.4114px;
-  --text-headline-large--font-weight: 700;
+  /* Surfaces (backwards-compat aliases) */
+  --color-surface:        #0d0d1e;
+  --color-surface-alt:    #1a1030;
+  --color-content:        #FFFFFF;
+  --color-content-secondary: #E0E0FF;
+  --color-accent:         #C084F0;
+  --color-accent-warm:    #FFD700;
+  --color-accent-yellow:  #F5B800;
+  --color-accent-sky:     #00D4AA;
+  --color-accent-violet:  #C084F0;
+  --color-border:         #C084F0;
+  --color-border-subtle:  #2a1a40;
+  --color-button-surface: #FF6B9D;
+  --color-overlay:        rgba(6, 6, 16, 0.72);
 
-  --text-headline: 73.1429px;
-  --text-headline--line-height: 65.8286px;
-  --text-headline--font-weight: 700;
+  /* Fonts — wired from Next.js font variables */
+  --font-display:           var(--font-barlow-condensed), "Barlow Condensed", sans-serif;
+  --font-display-condensed: var(--font-barlow-condensed), "Barlow Condensed", sans-serif;
+  --font-body:              var(--font-barlow), "Barlow", sans-serif;
 
-  --text-subheading: 36.5714px;
-  --text-subheading--line-height: 40.2286px;
-  --text-subheading--letter-spacing: -0.457143px;
-  --text-subheading--font-weight: 500;
+  /* Text scale */
+  --text-hero:                    96px;
+  --text-hero--line-height:       1;
+  --text-hero--letter-spacing:    0.03em;
+  --text-hero--font-weight:       800;
 
-  --text-subheading-sm: 21.9429px;
-  --text-subheading-sm--line-height: 28.5257px;
-  --text-subheading-sm--letter-spacing: -0.164571px;
-  --text-subheading-sm--font-weight: 500;
+  --text-headline-large:          80px;
+  --text-headline-large--line-height: 1;
+  --text-headline-large--font-weight: 800;
 
-  --text-body: 14.6286px;
-  --text-body--line-height: 20.48px;
-  --text-body--letter-spacing: -0.219429px;
-  --text-body--font-weight: 500;
+  --text-headline:                64px;
+  --text-headline--line-height:   1;
+  --text-headline--font-weight:   800;
 
-  --text-nav: 16.4571px;
-  --text-nav--line-height: 21.3943px;
-  --text-nav--letter-spacing: -0.246857px;
-  --text-nav--font-weight: 500;
+  --text-subheading:              36px;
+  --text-subheading--line-height: 1.2;
+  --text-subheading--font-weight: 700;
 
-  --text-caption: 10.9714px;
-  --text-caption--line-height: 16.4571px;
-  --text-caption--letter-spacing: -0.164571px;
-  --text-caption--font-weight: 400;
+  --text-subheading-sm:           22px;
+  --text-subheading-sm--line-height: 1.3;
+  --text-subheading-sm--font-weight: 700;
 
-  --text-button: 18px;
-  --text-button--line-height: 27px;
-  --text-button--letter-spacing: -0.0731429px;
-  --text-button--font-weight: 700;
+  --text-body:                    17px;
+  --text-body--line-height:       1.7;
+  --text-body--font-weight:       300;
 
-  --radius-pill: 1000px;
-  --radius-pill-large: 9999px;
-  --radius-lg: 50px;
-  --radius-md: 40px;
+  --text-nav:                     28px;
+  --text-nav--line-height:        1;
+  --text-nav--font-weight:        700;
 
-  --spacing-xs: 5.5px;
-  --spacing-sm: 7.3px;
-  --spacing-md: 12.8px;
-  --spacing-base: 18px;
-  --spacing-lg: 21.9px;
-  --spacing-xl: 29.3px;
-  --spacing-2xl: 36.6px;
-  --spacing-3xl: 43.9px;
-  --spacing-4xl: 80.5px;
-  --spacing-5xl: 87.8px;
-  --spacing-section: 128px;
-  --container-sm: 219.4px;
-  --container-md: 365.7px;
-  --container-lg: 548.6px;
-  --container-xl: 800px;
-  --pin-spacer: 800px;
+  --text-eyebrow:                 11px;
+  --text-eyebrow--letter-spacing: 0.15em;
+  --text-eyebrow--font-weight:    700;
 
-  --color-background: var(--color-surface);
-  --color-foreground: var(--color-content);
+  --text-caption:                 12px;
+  --text-caption--line-height:    1.5;
+  --text-caption--font-weight:    400;
 
-  --animate-fade-in: fade-in 0.6s ease-out;
+  --text-button:                  13px;
+  --text-button--letter-spacing:  0.05em;
+  --text-button--font-weight:     600;
+
+  /* Border-radius */
+  --radius-pill:          50px;
+  --radius-pill-large:    9999px;
+  --radius-lg:            0px;
+  --radius-md:            0px;
+
+  /* Spacing */
+  --spacing-xs:     5px;
+  --spacing-sm:     8px;
+  --spacing-md:     14px;
+  --spacing-base:   18px;
+  --spacing-lg:     24px;
+  --spacing-xl:     32px;
+  --spacing-2xl:    48px;
+  --spacing-3xl:    64px;
+  --spacing-4xl:    80px;
+  --spacing-5xl:    96px;
+  --spacing-section:128px;
+
+  --container-sm:   280px;
+  --container-md:   480px;
+  --container-lg:   720px;
+  --container-xl:   960px;
+  --pin-spacer:     800px;
+
+  --color-background: var(--color-bg-primary);
+  --color-foreground: var(--color-text-primary);
+
+  /* Easing */
+  --ease-gta: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Animations */
+  --animate-fade-in:    fade-in 0.6s var(--ease-gta) both;
+  --animate-fade-up:    fade-up 0.6s var(--ease-gta) both;
+  --animate-hero-pulse: hero-pulse 12s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
 }
 
+/* ─── Keyframes ─────────────────────────────────────────────────── */
 @keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes hero-pulse {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1);   }
+  50%       { filter: hue-rotate(15deg) brightness(1.05); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 157, 0.35); }
+  50%       { box-shadow: 0 0 40px rgba(255, 107, 157, 0.6);  }
+}
+
+@keyframes digit-in {
+  from { transform: translateY(40px); opacity: 0; filter: blur(4px); }
+  to   { transform: translateY(0);    opacity: 1; filter: blur(0);   }
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────── */
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: var(--color-surface);
-  color: var(--color-content);
-  font-family: var(--font-body), "Times New Roman", serif;
+  background: var(--color-bg-primary);
+  color: var(--color-text-body);
+  font-family: var(--font-body), sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: var(--color-accent);
-  color: var(--color-surface);
+  background: var(--color-lavender);
+  color: var(--color-bg-deep);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--color-lavender); border-radius: 2px; }
+
+/* ─── Reduced Motion ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0ms !important;
+    transition-duration: 0ms !important;
+  }
 }

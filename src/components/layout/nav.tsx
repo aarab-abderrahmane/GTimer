@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 
 const links = [
@@ -15,14 +14,34 @@ export function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-[var(--spacing-xl)] py-[var(--spacing-md)] backdrop-blur-[6.25px] max-sm:px-[var(--spacing-md)]">
+    <nav
+      className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between"
+      style={{
+        padding: "16px 32px",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
+        background: "linear-gradient(to bottom, rgba(6,6,16,0.6) 0%, transparent 100%)",
+      }}
+    >
+      {/* Brand mark */}
       <Link
         href="/"
-        className="font-[family-name:var(--font-display)] text-[var(--text-nav)] text-[var(--color-content)] tracking-[-0.246857px]"
+        style={{
+          fontFamily: "var(--font-display)",
+          fontSize: "22px",
+          fontWeight: 800,
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          color: "#FFFFFF",
+          textDecoration: "none",
+          lineHeight: 1,
+        }}
       >
-        GTimer
+        G<span style={{ color: "#C084F0" }}>TIMER</span>
       </Link>
-      <div className="flex items-center gap-[var(--spacing-lg)]">
+
+      {/* Nav links */}
+      <div className="flex items-center" style={{ gap: "32px" }}>
         {links.map(({ href, label }) => {
           const isActive =
             href === ""
@@ -32,12 +51,29 @@ export function Nav() {
             <Link
               key={href}
               href={href || "/"}
-              className={cn(
-                "font-[family-name:var(--font-body)] text-[var(--text-nav)] transition-colors",
-                isActive
-                  ? "text-[var(--color-content)]"
-                  : "text-[var(--color-content-secondary)] hover:text-[var(--color-content)]",
-              )}
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "13px",
+                fontWeight: 600,
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                color: isActive ? "#FFD700" : "#E0E0FF",
+                opacity: isActive ? 1 : 0.75,
+                transition: "color 300ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms",
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive) {
+                  (e.currentTarget as HTMLElement).style.color = "#FFFFFF";
+                  (e.currentTarget as HTMLElement).style.opacity = "1";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) {
+                  (e.currentTarget as HTMLElement).style.color = "#E0E0FF";
+                  (e.currentTarget as HTMLElement).style.opacity = "0.75";
+                }
+              }}
             >
               {t(label)}
             </Link>

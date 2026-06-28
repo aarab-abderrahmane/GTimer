@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import { Cinzel } from "next/font/google";
+import { Barlow_Condensed, Barlow } from "next/font/google";
 import "./globals.css";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 
-const cinzel = Cinzel({
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
+  weight: ["700", "800"],
   display: "swap",
-  variable: "--font-cinzel",
+  variable: "--font-barlow-condensed",
+});
+
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  display: "swap",
+  variable: "--font-barlow",
 });
 
 export const metadata: Metadata = {
@@ -57,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cinzel.variable} h-full`}
+      className={`${barlowCondensed.variable} ${barlow.variable} h-full`}
       suppressHydrationWarning
     >
       <head>
@@ -80,7 +88,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-        <meta name="theme-color" content="#111117" />
+        <meta name="theme-color" content="#0d0d1e" />
       </head>
       <body className="min-h-full antialiased">{children}</body>
     </html>
