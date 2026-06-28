@@ -1,0 +1,61 @@
+{
+  "site": {
+    "title": "GTimer - العد التنازلي لـ GTA VI",
+    "description": "تجربة العد التنازلي الأكثر جمالاً لـ GTA VI."
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "extension": "الإضافة",
+    "privacy": "الخصوصية",
+    "terms": "الشروط"
+  },
+  "countdown": {
+    "years": "سنوات",
+    "months": "أشهر",
+    "weeks": "أسابيع",
+    "days": "أيام",
+    "hours": "ساعات",
+    "minutes": "دقائق",
+    "seconds": "ثواني",
+    "milliseconds": "مللي",
+    "releaseDate": "19 نوفمبر 2026",
+    "released": "تم إصدار GTA VI!",
+    "heading": "جراند ثفت أوتو VI",
+    "subheading": "قادم إلى PlayStation 5 و Xbox Series X|S"
+  },
+  "settings": {
+    "language": "اللغة",
+    "country": "البلد",
+    "music": "الموسيقى",
+    "volume": "مستوى الصوت",
+    "sound": "المؤثرات الصوتية",
+    "theme": "المظهر"
+  },
+  "share": {
+    "title": "مشاركة GTimer",
+    "copyLink": "نسخ الرابط",
+    "copied": "تم النسخ!",
+    "qrCode": "رمز QR"
+  },
+  "extension": {
+    "title": "تثبيت إضافة GTimer",
+    "description": "ثبت العد التنازلي في شريط أدوات المتصفح.",
+    "cta": "تثبيت الآن",
+    "dismiss": "ربما لاحقاً"
+  },
+  "splash": {
+    "loading": "جاري التحميل..."
+  },
+  "footer": {
+    "copyright": "GTimer هو مشروع معجبين. غير تابع لـ Rockstar Games."
+  },
+  "offline": {
+    "title": "أنت غير متصل",
+    "description": "العد التنازلي يستمر في العمل بدون إنترنت."
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "description": "هذه الصفحة غير موجودة.",
+    "cta": "العودة للرئيسية"
+  }
+}

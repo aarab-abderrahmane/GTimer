@@ -1,0 +1,61 @@
+{
+  "site": {
+    "title": "GTimer - Conto alla rovescia GTA VI",
+    "description": "L'esperienza di conto alla rovescia di GTA VI più immersiva."
+  },
+  "nav": {
+    "home": "Home",
+    "extension": "Estensione",
+    "privacy": "Privacy",
+    "terms": "Termini"
+  },
+  "countdown": {
+    "years": "Anni",
+    "months": "Mesi",
+    "weeks": "Settimane",
+    "days": "Giorni",
+    "hours": "Ore",
+    "minutes": "Minuti",
+    "seconds": "Secondi",
+    "milliseconds": "ms",
+    "releaseDate": "19 novembre 2026",
+    "released": "GTA VI è uscito!",
+    "heading": "Grand Theft Auto VI",
+    "subheading": "Disponibile su PlayStation 5 e Xbox Series X|S"
+  },
+  "settings": {
+    "language": "Lingua",
+    "country": "Paese",
+    "music": "Musica",
+    "volume": "Volume",
+    "sound": "Effetti sonori",
+    "theme": "Tema"
+  },
+  "share": {
+    "title": "Condividi GTimer",
+    "copyLink": "Copia link",
+    "copied": "Copiato!",
+    "qrCode": "Codice QR"
+  },
+  "extension": {
+    "title": "Installa estensione GTimer",
+    "description": "Appunta il conto alla rovescia nella barra degli strumenti.",
+    "cta": "Installa ora",
+    "dismiss": "Più tardi"
+  },
+  "splash": {
+    "loading": "Caricamento..."
+  },
+  "footer": {
+    "copyright": "GTimer è un progetto fan. Non affiliato a Rockstar Games."
+  },
+  "offline": {
+    "title": "Sei offline",
+    "description": "Il conto alla rovescia continua a funzionare senza Internet."
+  },
+  "notFound": {
+    "title": "Pagina non trovata",
+    "description": "Questa pagina non esiste.",
+    "cta": "Vai alla home"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "site": {
+    "title": "GTimer - GTA VI 倒數計時",
+    "description": "最美麗的 GTA VI 倒數計時體驗。"
+  },
+  "nav": {
+    "home": "首頁",
+    "extension": "擴充功能",
+    "privacy": "隱私",
+    "terms": "條款"
+  },
+  "countdown": {
+    "years": "年",
+    "months": "個月",
+    "weeks": "週",
+    "days": "天",
+    "hours": "小時",
+    "minutes": "分鐘",
+    "seconds": "秒",
+    "milliseconds": "毫秒",
+    "releaseDate": "2026年11月19日",
+    "released": "GTA VI 已發布！",
+    "heading": "俠盜獵車手 VI",
+    "subheading": "登陸 PlayStation 5 和 Xbox Series X|S"
+  },
+  "settings": {
+    "language": "語言",
+    "country": "國家",
+    "music": "音樂",
+    "volume": "音量",
+    "sound": "音效",
+    "theme": "主題"
+  },
+  "share": {
+    "title": "分享 GTimer",
+    "copyLink": "複製連結",
+    "copied": "已複製！",
+    "qrCode": "QR 碼"
+  },
+  "extension": {
+    "title": "安裝 GTimer 擴充功能",
+    "description": "將倒數計時固定到瀏覽器工具列。",
+    "cta": "立即安裝",
+    "dismiss": "稍後再說"
+  },
+  "splash": {
+    "loading": "載入中..."
+  },
+  "footer": {
+    "copyright": "GTimer 是一個粉絲專案。與 Rockstar Games 無關。"
+  },
+  "offline": {
+    "title": "您已離線",
+    "description": "倒數計時無需網路也能繼續運作。"
+  },
+  "notFound": {
+    "title": "找不到頁面",
+    "description": "此頁面不存在。",
+    "cta": "返回首頁"
+  }
+}

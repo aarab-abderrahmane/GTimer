@@ -1,0 +1,61 @@
+{
+  "site": {
+    "title": "GTimer - GTA VI カウントダウン",
+    "description": "最も没入感のあるGTA VIカウントダウン体験。"
+  },
+  "nav": {
+    "home": "ホーム",
+    "extension": "拡張機能",
+    "privacy": "プライバシー",
+    "terms": "利用規約"
+  },
+  "countdown": {
+    "years": "年",
+    "months": "ヶ月",
+    "weeks": "週間",
+    "days": "日",
+    "hours": "時間",
+    "minutes": "分",
+    "seconds": "秒",
+    "milliseconds": "ms",
+    "releaseDate": "2026年11月19日",
+    "released": "GTA VIが発売されました！",
+    "heading": "グランド・セフト・オートVI",
+    "subheading": "PlayStation 5およびXbox Series X|Sで発売"
+  },
+  "settings": {
+    "language": "言語",
+    "country": "国",
+    "music": "音楽",
+    "volume": "音量",
+    "sound": "効果音",
+    "theme": "テーマ"
+  },
+  "share": {
+    "title": "GTimerをシェア",
+    "copyLink": "リンクをコピー",
+    "copied": "コピーしました！",
+    "qrCode": "QRコード"
+  },
+  "extension": {
+    "title": "GTimer拡張機能をインストール",
+    "description": "カウントダウンをツールバーにピン留めします。",
+    "cta": "今すぐインストール",
+    "dismiss": "後で"
+  },
+  "splash": {
+    "loading": "読み込み中..."
+  },
+  "footer": {
+    "copyright": "GTimerはファンプロジェクトです。Rockstar Gamesとは提携していません。"
+  },
+  "offline": {
+    "title": "オフラインです",
+    "description": "カウントダウンはインターネットなしでも動作し続けます。"
+  },
+  "notFound": {
+    "title": "ページが見つかりません",
+    "description": "このページは存在しません。",
+    "cta": "ホームに戻る"
+  }
+}

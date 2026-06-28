@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-surface: #111117;
+  --color-surface-alt: #0c0d1b;
+  --color-content: #ffffff;
+  --color-content-secondary: #ccc2f5;
+  --color-accent: #adb5ff;
+  --color-accent-warm: #ffb2c6;
+  --color-accent-yellow: #fff9cb;
+  --color-accent-sky: #b8e8ff;
+  --color-accent-violet: #cebff8;
+  --color-border: #e5ddff;
+  --color-border-subtle: #2f2e52;
+  --color-button-surface: #fdfbff;
+  --color-overlay: rgba(17, 17, 23, 0.6);
+
+  --font-display: "Cinzel", serif;
+  --font-display-condensed: "Cinzel", serif;
+  --font-body: "Cinzel", serif;
+
+  --text-hero: 102.4px;
+  --text-hero--line-height: 88.064px;
+  --text-hero--letter-spacing: -1.28px;
+  --text-hero--font-weight: 700;
+
+  --text-headline-large: 80.4571px;
+  --text-headline-large--line-height: 72.4114px;
+  --text-headline-large--font-weight: 700;
+
+  --text-headline: 73.1429px;
+  --text-headline--line-height: 65.8286px;
+  --text-headline--font-weight: 700;
+
+  --text-subheading: 36.5714px;
+  --text-subheading--line-height: 40.2286px;
+  --text-subheading--letter-spacing: -0.457143px;
+  --text-subheading--font-weight: 500;
+
+  --text-subheading-sm: 21.9429px;
+  --text-subheading-sm--line-height: 28.5257px;
+  --text-subheading-sm--letter-spacing: -0.164571px;
+  --text-subheading-sm--font-weight: 500;
+
+  --text-body: 14.6286px;
+  --text-body--line-height: 20.48px;
+  --text-body--letter-spacing: -0.219429px;
+  --text-body--font-weight: 500;
+
+  --text-nav: 16.4571px;
+  --text-nav--line-height: 21.3943px;
+  --text-nav--letter-spacing: -0.246857px;
+  --text-nav--font-weight: 500;
+
+  --text-caption: 10.9714px;
+  --text-caption--line-height: 16.4571px;
+  --text-caption--letter-spacing: -0.164571px;
+  --text-caption--font-weight: 400;
+
+  --text-button: 18px;
+  --text-button--line-height: 27px;
+  --text-button--letter-spacing: -0.0731429px;
+  --text-button--font-weight: 700;
+
+  --radius-pill: 1000px;
+  --radius-pill-large: 9999px;
+  --radius-lg: 50px;
+  --radius-md: 40px;
+
+  --spacing-xs: 5.5px;
+  --spacing-sm: 7.3px;
+  --spacing-md: 12.8px;
+  --spacing-base: 18px;
+  --spacing-lg: 21.9px;
+  --spacing-xl: 29.3px;
+  --spacing-2xl: 36.6px;
+  --spacing-3xl: 43.9px;
+  --spacing-4xl: 80.5px;
+  --spacing-5xl: 87.8px;
+  --spacing-section: 128px;
+  --container-sm: 219.4px;
+  --container-md: 365.7px;
+  --container-lg: 548.6px;
+  --container-xl: 800px;
+  --pin-spacer: 800px;
+
+  --color-background: var(--color-surface);
+  --color-foreground: var(--color-content);
+
+  --animate-fade-in: fade-in 0.6s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-content);
+  font-family: var(--font-body), "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-surface);
+}

@@ -1,0 +1,61 @@
+{
+  "site": {
+    "title": "GTimer - Contagem regressiva GTA VI",
+    "description": "A experiência de contagem regressiva de GTA VI mais bonita."
+  },
+  "nav": {
+    "home": "Início",
+    "extension": "Extensão",
+    "privacy": "Privacidade",
+    "terms": "Termos"
+  },
+  "countdown": {
+    "years": "Anos",
+    "months": "Meses",
+    "weeks": "Semanas",
+    "days": "Dias",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "seconds": "Segundos",
+    "milliseconds": "ms",
+    "releaseDate": "19 de novembro de 2026",
+    "released": "GTA VI foi lançado!",
+    "heading": "Grand Theft Auto VI",
+    "subheading": "Chegando ao PlayStation 5 e Xbox Series X|S"
+  },
+  "settings": {
+    "language": "Idioma",
+    "country": "País",
+    "music": "Música",
+    "volume": "Volume",
+    "sound": "Efeitos sonoros",
+    "theme": "Tema"
+  },
+  "share": {
+    "title": "Compartilhar GTimer",
+    "copyLink": "Copiar link",
+    "copied": "Copiado!",
+    "qrCode": "Código QR"
+  },
+  "extension": {
+    "title": "Instalar extensão GTimer",
+    "description": "Fixe a contagem regressiva na sua barra de ferramentas.",
+    "cta": "Instalar agora",
+    "dismiss": "Depois"
+  },
+  "splash": {
+    "loading": "Carregando..."
+  },
+  "footer": {
+    "copyright": "GTimer é um projeto de fã. Não afiliado à Rockstar Games."
+  },
+  "offline": {
+    "title": "Você está offline",
+    "description": "A contagem regressiva continua funcionando sem internet."
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "description": "Esta página não existe.",
+    "cta": "Voltar ao início"
+  }
+}

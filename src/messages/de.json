@@ -1,0 +1,61 @@
+{
+  "site": {
+    "title": "GTimer - GTA VI Countdown",
+    "description": "Das schönste GTA VI Countdown-Erlebnis."
+  },
+  "nav": {
+    "home": "Start",
+    "extension": "Erweiterung",
+    "privacy": "Datenschutz",
+    "terms": "AGB"
+  },
+  "countdown": {
+    "years": "Jahre",
+    "months": "Monate",
+    "weeks": "Wochen",
+    "days": "Tage",
+    "hours": "Stunden",
+    "minutes": "Minuten",
+    "seconds": "Sekunden",
+    "milliseconds": "ms",
+    "releaseDate": "19. November 2026",
+    "released": "GTA VI ist erschienen!",
+    "heading": "Grand Theft Auto VI",
+    "subheading": "Erhältlich für PlayStation 5 und Xbox Series X|S"
+  },
+  "settings": {
+    "language": "Sprache",
+    "country": "Land",
+    "music": "Musik",
+    "volume": "Lautstärke",
+    "sound": "Soundeffekte",
+    "theme": "Design"
+  },
+  "share": {
+    "title": "GTimer teilen",
+    "copyLink": "Link kopieren",
+    "copied": "Kopiert!",
+    "qrCode": "QR-Code"
+  },
+  "extension": {
+    "title": "GTimer-Erweiterung installieren",
+    "description": "Pinne den Countdown an deine Browser-Symbolleiste.",
+    "cta": "Jetzt installieren",
+    "dismiss": "Vielleicht später"
+  },
+  "splash": {
+    "loading": "Wird geladen..."
+  },
+  "footer": {
+    "copyright": "GTimer ist ein Fan-Projekt. Nicht verbunden mit Rockstar Games."
+  },
+  "offline": {
+    "title": "Du bist offline",
+    "description": "Der Countdown funktioniert weiterhin ohne Internet."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Diese Seite existiert nicht.",
+    "cta": "Zur Startseite"
+  }
+}

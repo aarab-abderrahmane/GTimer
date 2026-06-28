@@ -1,0 +1,61 @@
+{
+  "site": {
+    "title": "GTimer - GTA VI 카운트다운",
+    "description": "가장 몰입감 있는 GTA VI 카운트다운 경험."
+  },
+  "nav": {
+    "home": "홈",
+    "extension": "확장 프로그램",
+    "privacy": "개인정보",
+    "terms": "이용약관"
+  },
+  "countdown": {
+    "years": "년",
+    "months": "개월",
+    "weeks": "주",
+    "days": "일",
+    "hours": "시간",
+    "minutes": "분",
+    "seconds": "초",
+    "milliseconds": "ms",
+    "releaseDate": "2026년 11월 19일",
+    "released": "GTA VI가 출시되었습니다!",
+    "heading": "그랜드 테프트 오토 VI",
+    "subheading": "PlayStation 5 및 Xbox Series X|S로 출시"
+  },
+  "settings": {
+    "language": "언어",
+    "country": "국가",
+    "music": "음악",
+    "volume": "볼륨",
+    "sound": "사운드 효과",
+    "theme": "테마"
+  },
+  "share": {
+    "title": "GTimer 공유하기",
+    "copyLink": "링크 복사",
+    "copied": "복사되었습니다!",
+    "qrCode": "QR 코드"
+  },
+  "extension": {
+    "title": "GTimer 확장 프로그램 설치",
+    "description": "카운트다운을 브라우저 툴바에 고정하세요.",
+    "cta": "지금 설치",
+    "dismiss": "나중에"
+  },
+  "splash": {
+    "loading": "로딩 중..."
+  },
+  "footer": {
+    "copyright": "GTimer는 팬 프로젝트입니다. Rockstar Games와 제휴하지 않았습니다."
+  },
+  "offline": {
+    "title": "오프라인 상태입니다",
+    "description": "카운트다운은 인터넷 없이도 계속 작동합니다."
+  },
+  "notFound": {
+    "title": "페이지를 찾을 수 없습니다",
+    "description": "이 페이지는 존재하지 않습니다.",
+    "cta": "홈으로 가기"
+  }
+}

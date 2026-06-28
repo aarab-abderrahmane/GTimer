@@ -1,0 +1,61 @@
+{
+  "site": {
+    "title": "GTimer - GTA VI 倒计时",
+    "description": "最精美的 GTA VI 倒计时体验。"
+  },
+  "nav": {
+    "home": "首页",
+    "extension": "扩展",
+    "privacy": "隐私",
+    "terms": "条款"
+  },
+  "countdown": {
+    "years": "年",
+    "months": "个月",
+    "weeks": "周",
+    "days": "天",
+    "hours": "小时",
+    "minutes": "分钟",
+    "seconds": "秒",
+    "milliseconds": "毫秒",
+    "releaseDate": "2026年11月19日",
+    "released": "GTA VI 已发布！",
+    "heading": "侠盗猎车手 VI",
+    "subheading": "登陆 PlayStation 5 和 Xbox Series X|S"
+  },
+  "settings": {
+    "language": "语言",
+    "country": "国家",
+    "music": "音乐",
+    "volume": "音量",
+    "sound": "音效",
+    "theme": "主题"
+  },
+  "share": {
+    "title": "分享 GTimer",
+    "copyLink": "复制链接",
+    "copied": "已复制！",
+    "qrCode": "二维码"
+  },
+  "extension": {
+    "title": "安装 GTimer 扩展",
+    "description": "将倒计时固定到浏览器工具栏。",
+    "cta": "立即安装",
+    "dismiss": "稍后"
+  },
+  "splash": {
+    "loading": "加载中..."
+  },
+  "footer": {
+    "copyright": "GTimer 是一个粉丝项目。与 Rockstar Games 无关。"
+  },
+  "offline": {
+    "title": "您已离线",
+    "description": "倒计时无需网络也能继续运行。"
+  },
+  "notFound": {
+    "title": "页面未找到",
+    "description": "此页面不存在。",
+    "cta": "返回首页"
+  }
+}

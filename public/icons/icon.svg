@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#111117"/>
+  <text x="256" y="300" text-anchor="middle" font-family="Cinzel, serif" font-size="240" font-weight="700" fill="#ffb2c6">G</text>
+  <text x="256" y="390" text-anchor="middle" font-family="Cinzel, serif" font-size="48" font-weight="500" fill="#adb5ff">TIMER</text>
+</svg>

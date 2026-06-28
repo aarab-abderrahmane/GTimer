@@ -1,0 +1,61 @@
+{
+  "site": {
+    "title": "GTimer - Compte à rebours GTA VI",
+    "description": "L'expérience de compte à rebours GTA VI la plus immersive."
+  },
+  "nav": {
+    "home": "Accueil",
+    "extension": "Extension",
+    "privacy": "Confidentialité",
+    "terms": "Conditions"
+  },
+  "countdown": {
+    "years": "Années",
+    "months": "Mois",
+    "weeks": "Semaines",
+    "days": "Jours",
+    "hours": "Heures",
+    "minutes": "Minutes",
+    "seconds": "Secondes",
+    "milliseconds": "ms",
+    "releaseDate": "19 novembre 2026",
+    "released": "GTA VI est disponible !",
+    "heading": "Grand Theft Auto VI",
+    "subheading": "Disponible sur PlayStation 5 et Xbox Series X|S"
+  },
+  "settings": {
+    "language": "Langue",
+    "country": "Pays",
+    "music": "Musique",
+    "volume": "Volume",
+    "sound": "Effets sonores",
+    "theme": "Thème"
+  },
+  "share": {
+    "title": "Partager GTimer",
+    "copyLink": "Copier le lien",
+    "copied": "Copié !",
+    "qrCode": "Code QR"
+  },
+  "extension": {
+    "title": "Installer l'extension GTimer",
+    "description": "Épinglez le compte à rebours dans votre barre d'outils.",
+    "cta": "Installer",
+    "dismiss": "Plus tard"
+  },
+  "splash": {
+    "loading": "Chargement..."
+  },
+  "footer": {
+    "copyright": "GTimer est un projet fan. Non affilié à Rockstar Games."
+  },
+  "offline": {
+    "title": "Vous êtes hors ligne",
+    "description": "Le compte à rebours continue de fonctionner sans Internet."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "Cette page n'existe pas.",
+    "cta": "Accueil"
+  }
+}
