@@ -13,6 +13,7 @@ import type { Locale } from "@/lib/constants";
 export interface Settings {
   language: Locale;
   country: string;
+  timezone: string;
   volume: number;
   musicEnabled: boolean;
   soundEnabled: boolean;
@@ -27,6 +28,7 @@ interface SettingsContextValue {
 const defaultSettings: Settings = {
   language: "en",
   country: "US",
+  timezone: "",
   volume: 50,
   musicEnabled: false,
   soundEnabled: true,
@@ -50,6 +52,15 @@ function loadSettings(): Settings {
 
 export function SettingsProvider({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useState<Settings>(loadSettings);
+
+  useEffect(() => {
+    if (!settings.timezone && typeof window !== "undefined") {
+      try {
+        const detected = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        setSettings((prev) => ({ ...prev, timezone: detected }));
+      } catch {}
+    }
+  }, []);
 
   useEffect(() => {
     try {

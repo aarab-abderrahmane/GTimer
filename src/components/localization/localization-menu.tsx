@@ -31,8 +31,13 @@ export function LocalizationMenu() {
   const { settings, updateSettings } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"language" | "country">("language");
+  const [countryQuery, setCountryQuery] = useState("");
   const flag = getCountryFlag(settings.country);
 
+  const close = () => {
+    setIsOpen(false);
+    setCountryQuery("");
+  };
   const switchLocale = (newLocale: string) => {
     const segments = pathname.split("/").filter(Boolean);
     if (LOCALES.includes(segments[0] as Locale)) {
@@ -46,7 +51,7 @@ export function LocalizationMenu() {
   return (
     <div className="relative">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => { setIsOpen(!isOpen); if (isOpen) setCountryQuery(""); }}
         className="flex items-center gap-2 rounded-full px-4 py-1.5 transition-all duration-300 backdrop-blur-md"
         style={{
           fontFamily: "var(--font-body)",
@@ -95,7 +100,7 @@ export function LocalizationMenu() {
           >
             <div className="flex border-b border-white/10" style={{ borderColor: "rgba(192,132,240,0.2)" }}>
               <button
-                onClick={() => setActiveTab("language")}
+                onClick={() => { setActiveTab("language"); setCountryQuery(""); }}
                 className="flex-1 py-2 text-[11px] font-bold uppercase tracking-wider transition-colors"
                 style={{
                   color: activeTab === "language" ? "#FFD700" : "#9999BB",
@@ -156,44 +161,71 @@ export function LocalizationMenu() {
                 </button>
               ))}
 
-              {activeTab === "country" && COUNTRIES.map((c) => (
-                <button
-                  key={c.code}
-                  onClick={() => {
-                    updateSettings({ country: c.code });
-                  }}
-                  className="flex w-full items-center gap-3 text-left transition-all duration-200"
-                  style={{
-                    padding: "10px 16px",
-                    fontFamily: "var(--font-body)",
-                    fontSize: "13px",
-                    fontWeight: c.code === settings.country ? 600 : 300,
-                    color: c.code === settings.country ? "#FFD700" : "#E0E0FF",
-                    background: c.code === settings.country ? "rgba(192,132,240,0.1)" : "transparent",
-                    border: "none",
-                    cursor: "pointer",
-                    borderBottom: "1px solid rgba(192,132,240,0.06)",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (c.code !== settings.country) {
-                      (e.currentTarget as HTMLElement).style.background = "rgba(192,132,240,0.07)";
-                      (e.currentTarget as HTMLElement).style.color = "#FFFFFF";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (c.code !== settings.country) {
-                      (e.currentTarget as HTMLElement).style.background = "transparent";
-                      (e.currentTarget as HTMLElement).style.color = "#E0E0FF";
-                    }
-                  }}
-                >
-                  <span>{c.flag}</span>
-                  <span className="flex-1 truncate">{c.name}</span>
-                  {c.code === settings.country && (
-                    <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#FFD700", flexShrink: 0 }} />
-                  )}
-                </button>
-              ))}
+              {activeTab === "country" && (
+                <>
+                  <div style={{ padding: "8px 12px", borderBottom: "1px solid rgba(192,132,240,0.1)" }}>
+                    <input
+                      type="text"
+                      placeholder="Search countries..."
+                      value={countryQuery}
+                      onChange={(e) => setCountryQuery(e.target.value)}
+                      style={{
+                        width: "100%",
+                        padding: "6px 10px",
+                        fontFamily: "var(--font-body)",
+                        fontSize: "12px",
+                        background: "rgba(26,16,48,0.6)",
+                        border: "1px solid rgba(192,132,240,0.2)",
+                        color: "#E0E0FF",
+                        outline: "none",
+                      }}
+                    />
+                  </div>
+                  {COUNTRIES.filter(
+                    (c) =>
+                      !countryQuery ||
+                      c.name.toLowerCase().includes(countryQuery.toLowerCase()) ||
+                      c.code.toLowerCase().includes(countryQuery.toLowerCase()),
+                  ).map((c) => (
+                    <button
+                      key={c.code}
+                      onClick={() => {
+                        updateSettings({ country: c.code, timezone: c.timezones[0] });
+                      }}
+                      className="flex w-full items-center gap-3 text-left transition-all duration-200"
+                      style={{
+                        padding: "10px 16px",
+                        fontFamily: "var(--font-body)",
+                        fontSize: "13px",
+                        fontWeight: c.code === settings.country ? 600 : 300,
+                        color: c.code === settings.country ? "#FFD700" : "#E0E0FF",
+                        background: c.code === settings.country ? "rgba(192,132,240,0.1)" : "transparent",
+                        border: "none",
+                        cursor: "pointer",
+                        borderBottom: "1px solid rgba(192,132,240,0.06)",
+                      }}
+                      onMouseEnter={(e) => {
+                        if (c.code !== settings.country) {
+                          (e.currentTarget as HTMLElement).style.background = "rgba(192,132,240,0.07)";
+                          (e.currentTarget as HTMLElement).style.color = "#FFFFFF";
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (c.code !== settings.country) {
+                          (e.currentTarget as HTMLElement).style.background = "transparent";
+                          (e.currentTarget as HTMLElement).style.color = "#E0E0FF";
+                        }
+                      }}
+                    >
+                      <span>{c.flag}</span>
+                      <span className="flex-1 truncate">{c.name}</span>
+                      {c.code === settings.country && (
+                        <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#FFD700", flexShrink: 0 }} />
+                      )}
+                    </button>
+                  ))}
+                </>
+              )}
             </div>
           </motion.div>
         )}

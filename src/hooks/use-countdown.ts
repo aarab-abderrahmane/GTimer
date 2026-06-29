@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { RELEASE_DATE } from "@/lib/constants";
+import { getCountdownTarget } from "@/lib/time";
+import { useSettings } from "@/contexts/settings-context";
 
 export interface CountdownTime {
   years: number;
@@ -16,9 +17,9 @@ export interface CountdownTime {
   isReleased: boolean;
 }
 
-function getTimeRemaining(target: Date): CountdownTime {
+function getTimeRemaining(targetMs: number): CountdownTime {
   const now = Date.now();
-  const total = target.getTime() - now;
+  const total = targetMs - now;
 
   if (total <= 0) {
     return {
@@ -59,17 +60,28 @@ function getTimeRemaining(target: Date): CountdownTime {
 }
 
 export function useCountdown() {
-  const [time, setTime] = useState<CountdownTime>(() =>
-    getTimeRemaining(RELEASE_DATE),
-  );
+  const { settings } = useSettings();
+  const targetRef = useRef<number>(getCountdownTarget(settings.timezone));
   const rafRef = useRef<number | null>(null);
   const lastUpdateRef = useRef<number>(0);
+
+  useEffect(() => {
+    targetRef.current = getCountdownTarget(settings.timezone);
+  }, [settings.timezone]);
+
+  const [time, setTime] = useState<CountdownTime>(() =>
+    getTimeRemaining(targetRef.current),
+  );
+
+  useEffect(() => {
+    setTime(getTimeRemaining(targetRef.current));
+  }, [settings.timezone]);
 
   useEffect(() => {
     function tick(timestamp: number) {
       if (timestamp - lastUpdateRef.current >= 16) {
         lastUpdateRef.current = timestamp;
-        setTime(getTimeRemaining(RELEASE_DATE));
+        setTime(getTimeRemaining(targetRef.current));
       }
       rafRef.current = requestAnimationFrame(tick);
     }

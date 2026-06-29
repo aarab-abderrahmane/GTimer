@@ -7,7 +7,7 @@ import { Countdown } from "@/components/countdown/countdown";
 import { VILoader } from "@/components/countdown/vi-loader";
 import { CopyLink } from "@/components/share/copy-link";
 import { useCountry } from "@/hooks/use-country";
-import { RELEASE_DATE } from "@/lib/constants";
+
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
@@ -41,16 +41,6 @@ export function CountdownSection({
     const timer = setTimeout(() => setVisible(true), 100);
     return () => clearTimeout(timer);
   }, []);
-
-  if (isNaN(RELEASE_DATE.getTime())) {
-    return (
-      <section className="flex min-h-screen items-center justify-center px-8">
-        <p style={{ fontFamily: "var(--font-body)", fontSize: "16px", color: "#FF6B9D" }}>
-          Countdown target date is invalid.
-        </p>
-      </section>
-    );
-  }
 
   return (
     <section

@@ -4,20 +4,17 @@ import { useMemo } from "react";
 import { detectCountry, getCountryByCode, type Country } from "@/lib/countries";
 import { useSettings } from "@/contexts/settings-context";
 
-function getTimezoneInfo() {
+function getTimezoneOffset(tz: string): string {
   try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const offset = -new Date().getTimezoneOffset();
-    const hours = Math.floor(Math.abs(offset) / 60);
-    const mins = Math.abs(offset) % 60;
-    const sign = offset >= 0 ? "+" : "-";
-    return {
-      timezone: tz,
-      timezoneOffset: `UTC${sign}${String(hours).padStart(2, "0")}:${String(mins).padStart(2, "0")}`,
-    };
-  } catch {
-    return { timezone: "UTC", timezoneOffset: "UTC+00:00" };
-  }
+    const date = new Date();
+    const str = date.toLocaleString("en", {
+      timeZone: tz,
+      timeZoneName: "shortOffset",
+    });
+    const match = str.match(/([+-]\d{2}:\d{2})/);
+    if (match) return `UTC${match[1]}`;
+  } catch {}
+  return "UTC";
 }
 
 export function useCountry(): {
@@ -26,7 +23,19 @@ export function useCountry(): {
   timezoneOffset: string;
 } {
   const { settings } = useSettings();
-  const { timezone, timezoneOffset } = useMemo(() => getTimezoneInfo(), []);
+  const browserTz = useMemo(
+    () => {
+      try {
+        return Intl.DateTimeFormat().resolvedOptions().timeZone;
+      } catch {
+        return "UTC";
+      }
+    },
+    [],
+  );
+
+  const timezone = settings.timezone || browserTz;
+  const timezoneOffset = useMemo(() => getTimezoneOffset(timezone), [timezone]);
 
   const countryCode = settings.country || detectCountry();
   const country = getCountryByCode(countryCode) ?? {
