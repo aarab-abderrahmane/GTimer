@@ -13,6 +13,5 @@ export const TRACKS: Track[] = [
 ];
 
 export const SOUND_EFFECTS = {
-  tick: "/audio/tick.mp3",
   celebration: "/audio/celebration.mp3",
 } as const;

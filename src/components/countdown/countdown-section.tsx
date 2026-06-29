@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, lazy, Suspense, useEffect, useRef } from "react";
-import Image from "next/image";
 import { BackgroundVideo } from "../background/background-video";
 import { BackgroundOverlay } from "@/components/background/background-overlay";
 import { Countdown } from "@/components/countdown/countdown";
