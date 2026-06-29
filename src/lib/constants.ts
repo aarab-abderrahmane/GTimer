@@ -1,3 +1,4 @@
+export const PRE_ORDER_DATE = new Date("2026-06-25T00:00:00Z");
 export const RELEASE_DATE = new Date("2026-11-19T00:00:00Z");
 
 export const SITE_NAME = "GTimer";

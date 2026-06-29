@@ -5,6 +5,7 @@ import Image from "next/image";
 import { BackgroundVideo } from "../background/background-video";
 import { BackgroundOverlay } from "@/components/background/background-overlay";
 import { Countdown } from "@/components/countdown/countdown";
+import { VILoader } from "@/components/countdown/vi-loader";
 import { CopyLink } from "@/components/share/copy-link";
 import { useCountry } from "@/hooks/use-country";
 import { RELEASE_DATE } from "@/lib/constants";
@@ -121,7 +122,7 @@ export function CountdownSection({
         </h1>
 
         {/* Platform logos */}
-        <div
+        {/* <div
           className={cn(
             "mb-12 flex justify-center transition-all duration-700",
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
@@ -135,6 +136,17 @@ export function CountdownSection({
             height={80}
             style={{ objectFit: "contain" }}
           />
+        </div> */}
+
+        {/* VI Loader Animation */}
+        <div
+          className={cn(
+            "mb-6 transition-all duration-700",
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+          )}
+          style={{ transitionDelay: "300ms", width: "100%", maxWidth: "400px" }}
+        >
+          <VILoader />
         </div>
 
         {/* Countdown digits */}
@@ -143,7 +155,7 @@ export function CountdownSection({
             "transition-all duration-700",
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
-          style={{ transitionDelay: "300ms" }}
+          style={{ transitionDelay: "400ms" }}
         >
           <Countdown />
         </div>
@@ -154,7 +166,7 @@ export function CountdownSection({
             "mt-10 flex flex-col items-center gap-2 transition-all duration-700",
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
-          style={{ transitionDelay: "400ms" }}
+          style={{ transitionDelay: "500ms" }}
         >
           <p
             style={{
@@ -184,7 +196,7 @@ export function CountdownSection({
               "flex flex-wrap items-center justify-center gap-6 transition-all duration-700",
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
             )}
-            style={{ transitionDelay: "500ms" }}
+            style={{ transitionDelay: "600ms" }}
           >
             {/* Primary CTA — hot pink pill */}
             <a
