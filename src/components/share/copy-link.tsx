@@ -19,7 +19,7 @@ export function CopyLink() {
   return (
     <button
       onClick={handleCopy}
-      className="group flex items-center gap-2 transition-all duration-300"
+      className="group flex items-center gap-2 transition-all px-3 py-3 rounded-full backdrop-blur-3xl duration-300"
       style={{
         fontFamily: "var(--font-body)",
         fontSize: "13px",

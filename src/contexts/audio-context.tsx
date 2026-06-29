@@ -58,11 +58,15 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   }, [settings.volume]);
 
   const play = useCallback(() => {
-    if (!settings.musicEnabled) return;
     if (!audioRef.current) {
       initAudio(currentTrack);
     }
-    audioRef.current?.play().then(() => setIsPlaying(true)).catch((err) => {
+    audioRef.current?.play().then(() => {
+      setIsPlaying(true);
+      if (!settings.musicEnabled) {
+        updateSettings({ musicEnabled: true });
+      }
+    }).catch((err) => {
       setIsPlaying(false);
       if (err.name === "NotAllowedError") {
         show("Autoplay blocked. Tap play to start music.", "info");
@@ -70,7 +74,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
         show("Music playback failed", "error");
       }
     });
-  }, [settings.musicEnabled, currentTrack, initAudio, show]);
+  }, [currentTrack, initAudio, show, settings.musicEnabled, updateSettings]);
 
   const pause = useCallback(() => {
     audioRef.current?.pause();

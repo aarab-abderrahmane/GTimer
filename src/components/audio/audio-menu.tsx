@@ -10,62 +10,96 @@ import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 
 export function AudioMenu() {
-  const { isPlaying, currentTrack, selectTrack, setVolume } = useAudio();
+  const { isPlaying, currentTrack, toggle, selectTrack, setVolume } = useAudio();
   const { settings, updateSettings } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("settings");
 
   const VolumeIcon = settings.volume === 0 ? VolumeX : settings.volume < 50 ? Volume1 : Volume2;
 
+  const containerBg = isPlaying ? "rgba(192,132,240,0.15)" : "rgba(26,16,48,0.6)";
+  const containerBorder = isPlaying ? "1px solid rgba(192,132,240,0.4)" : "1px solid rgba(192,132,240,0.2)";
+
   return (
     <div className="relative">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 rounded-full px-4 py-1.5 transition-all duration-300 backdrop-blur-md"
+      <div
+        className="flex items-center rounded-full backdrop-blur-md"
         style={{
-          fontFamily: "var(--font-body)",
-          fontSize: "12px",
-          fontWeight: 600,
-          letterSpacing: "0.05em",
-          color: isPlaying ? "#C084F0" : "#E0E0FF",
-          background: isPlaying ? "rgba(192,132,240,0.15)" : "rgba(26,16,48,0.6)",
-          border: isPlaying ? "1px solid rgba(192,132,240,0.4)" : "1px solid rgba(192,132,240,0.2)",
-          cursor: "pointer",
+          background: containerBg,
+          border: containerBorder,
+          transition: "all 300ms cubic-bezier(0.22, 1, 0.36, 1)",
         }}
         onMouseEnter={(e) => {
           if (!isPlaying) {
             (e.currentTarget as HTMLElement).style.borderColor = "rgba(192,132,240,0.5)";
-            (e.currentTarget as HTMLElement).style.color = "#FFFFFF";
           }
         }}
         onMouseLeave={(e) => {
           if (!isPlaying) {
             (e.currentTarget as HTMLElement).style.borderColor = "rgba(192,132,240,0.2)";
-            (e.currentTarget as HTMLElement).style.color = "#E0E0FF";
           }
         }}
       >
-        {isPlaying ? <Pause className="h-3.5 w-3.5 shrink-0" /> : <Play className="h-3.5 w-3.5 shrink-0" />}
-        <Music className="h-3 w-3 shrink-0" />
-        <span
+        <button
+          onClick={(e) => { e.stopPropagation(); toggle(); }}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-l-full transition-colors duration-200"
           style={{
-            maxWidth: "72px",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-            display: "block",
-            color: "#9999BB"
+            fontFamily: "var(--font-body)",
+            fontSize: "12px",
+            fontWeight: 600,
+            letterSpacing: "0.05em",
+            color: isPlaying ? "#C084F0" : "#E0E0FF",
+            border: "none",
+            cursor: "pointer",
+            background: "transparent",
           }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#FFFFFF"; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = isPlaying ? "#C084F0" : "#E0E0FF"; }}
+          aria-label={isPlaying ? "Pause music" : "Play music"}
         >
-          {currentTrack.title}
-        </span>
-        <ChevronDown
-          className={cn(
-            "h-3 w-3 shrink-0 transition-transform duration-300 text-[#9999BB]",
-            isOpen && "rotate-180"
-          )}
-        />
-      </button>
+          {isPlaying ? <Pause className="h-3.5 w-3.5 shrink-0" /> : <Play className="h-3.5 w-3.5 shrink-0" />}
+          <Music className="h-3 w-3 shrink-0" />
+        </button>
+
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-r-full transition-colors duration-200"
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "12px",
+            fontWeight: 600,
+            letterSpacing: "0.05em",
+            color: "#E0E0FF",
+            border: "none",
+            cursor: "pointer",
+            borderLeft: "1px solid rgba(192,132,240,0.2)",
+            background: "transparent",
+          }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#FFFFFF"; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#E0E0FF"; }}
+          aria-label="Select track"
+        >
+          <span
+            style={{
+              maxWidth: "72px",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              display: "block",
+              color: "#9999BB"
+            }}
+          >
+            {currentTrack.title}
+          </span>
+          <ChevronDown
+            className={cn(
+              "h-3 w-3 shrink-0 transition-transform duration-300",
+              isOpen && "rotate-180"
+            )}
+            style={{ color: "#9999BB" }}
+          />
+        </button>
+      </div>
 
       <AnimatePresence>
         {isOpen && (

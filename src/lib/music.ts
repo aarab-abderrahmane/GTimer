@@ -5,11 +5,11 @@ export interface Track {
 }
 
 export const TRACKS: Track[] = [
-  { id: 1, title: "Synthwave Nights", src: "/audio/track-01.mp3" },
-  { id: 2, title: "Vice City Dream", src: "/audio/track-02.mp3" },
-  { id: 3, title: "Neon Coastline", src: "/audio/track-03.mp3" },
-  { id: 4, title: "Ocean Drive", src: "/audio/track-04.mp3" },
-  { id: 5, title: "Midnight Rain", src: "/audio/track-05.mp3" },
+  { id: 1, title: "Vice City Dream", src: "/audio/track-02.mp3" },
+  { id: 2, title: "Synthwave Nights", src: "/audio/track-02.mp3" },
+  { id: 3, title: "Neon Coastline", src: "/audio/track-02.mp3" },
+  { id: 4, title: "Ocean Drive", src: "/audio/track-02.mp3" },
+  { id: 5, title: "Midnight Rain", src: "/audio/track-02.mp3" },
 ];
 
 export const SOUND_EFFECTS = {

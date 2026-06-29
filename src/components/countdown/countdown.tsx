@@ -1,12 +1,49 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useCountdown } from "@/hooks/use-countdown";
 import { AnimatedDigit } from "./animated-digit";
 import { useTranslations } from "next-intl";
+import { useTickSound } from "@/components/audio/sound-effects";
+import { SOUND_EFFECTS } from "@/lib/music";
+import { useSettings } from "@/contexts/settings-context";
 
 export function Countdown() {
   const time = useCountdown();
   const t = useTranslations("countdown");
+  const tick = useTickSound();
+  const { settings } = useSettings();
+  const prevSecondsRef = useRef(time.seconds);
+  const celebrationPlayedRef = useRef(false);
+  const celebrationAudioRef = useRef<HTMLAudioElement | null>(null);
+  const soundEnabledRef = useRef(settings.soundEnabled);
+
+  useEffect(() => {
+    soundEnabledRef.current = settings.soundEnabled;
+  }, [settings.soundEnabled]);
+
+  useEffect(() => {
+    if (!settings.soundEnabled && celebrationAudioRef.current) {
+      celebrationAudioRef.current.pause();
+      celebrationAudioRef.current = null;
+    }
+  }, [settings.soundEnabled]);
+
+  useEffect(() => {
+    if (!settings.soundEnabled) return;
+    if (time.isReleased && !celebrationPlayedRef.current) {
+      celebrationPlayedRef.current = true;
+      const audio = new Audio(SOUND_EFFECTS.celebration);
+      audio.volume = 0.5;
+      audio.play().catch(() => {});
+      celebrationAudioRef.current = audio;
+      return;
+    }
+    if (time.seconds !== prevSecondsRef.current) {
+      prevSecondsRef.current = time.seconds;
+      tick();
+    }
+  });
 
   if (time.isReleased) {
     return (
