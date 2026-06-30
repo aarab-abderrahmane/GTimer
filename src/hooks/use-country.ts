@@ -11,8 +11,13 @@ function getTimezoneOffset(tz: string): string {
       timeZone: tz,
       timeZoneName: "shortOffset",
     });
-    const match = str.match(/([+-]\d{2}:\d{2})/);
-    if (match) return `UTC${match[1]}`;
+    const match = str.match(/([+-]\d{1,2})(:\d{2})?/);
+    if (match) {
+      const sign = match[1][0] === "+" ? "+" : "-";
+      const hours = match[1].slice(1).padStart(2, "0");
+      const mins = match[2] ? match[2].slice(1) : "00";
+      return `UTC${sign}${hours}:${mins}`;
+    }
   } catch {}
   return "UTC";
 }

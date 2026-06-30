@@ -5,9 +5,10 @@ import { motion, AnimatePresence } from "motion/react";
 import { X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useAudio } from "@/contexts/audio-context";
 import { cn } from "@/lib/utils";
+import { getDirection } from "@/lib/direction";
 
 interface SlideoutNavProps {
   isOpen: boolean;
@@ -21,6 +22,9 @@ const links = [
 
 export function SlideoutNav({ isOpen, onClose }: SlideoutNavProps) {
   const t = useTranslations("nav");
+  const ts = useTranslations("settings");
+  const locale = useLocale();
+  const isRTL = getDirection(locale) === "rtl";
   const pathname = usePathname();
   const { isPlaying, toggle } = useAudio();
 
@@ -51,11 +55,11 @@ export function SlideoutNav({ isOpen, onClose }: SlideoutNavProps) {
             onClick={onClose}
           />
           <motion.nav
-            initial={{ x: "100%" }}
+            initial={{ x: isRTL ? "-100%" : "100%" }}
             animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            exit={{ x: isRTL ? "-100%" : "100%" }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed top-0 right-0 z-50 flex h-full w-1/2 flex-col bg-[var(--color-surface-alt)] max-sm:w-full"
+            className="fixed top-0 end-0 z-50 flex h-full w-1/2 flex-col bg-[var(--color-surface-alt)] max-sm:w-full"
           >
             <div className="flex items-center justify-end p-[var(--spacing-page-edge)]">
               <button
@@ -84,7 +88,7 @@ export function SlideoutNav({ isOpen, onClose }: SlideoutNavProps) {
                   >
                     {t(label)}
                     {active && (
-                      <span className="ml-[var(--spacing-sm)] text-[var(--color-accent-gold)]">
+                      <span className="ms-[var(--spacing-sm)] text-[var(--color-accent-gold)]">
                         ›
                       </span>
                     )}
@@ -103,7 +107,7 @@ export function SlideoutNav({ isOpen, onClose }: SlideoutNavProps) {
                     : "bg-white/10 text-[var(--color-text-caption)] hover:text-[var(--color-text-primary)]",
                 )}
               >
-                {isPlaying ? "Music On" : "Music Off"}
+                {isPlaying ? ts("musicOn") : ts("musicOff")}
               </button>
             </div>
           </motion.nav>

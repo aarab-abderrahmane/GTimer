@@ -8,6 +8,8 @@ import { ToastProvider } from "@/components/toast/toast";
 import { ServiceWorkerRegister } from "@/components/layout/sw-register";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
+import { DirectionProvider } from "@/components/layout/direction-provider";
+import { getDirection } from "@/lib/direction";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -35,18 +37,20 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <SettingsProvider>
-        <ToastProvider>
-          <AudioProvider>
-            <div className="flex min-h-screen flex-col">
-              <Nav />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
-            <ServiceWorkerRegister />
-          </AudioProvider>
-        </ToastProvider>
-      </SettingsProvider>
+      <DirectionProvider>
+        <SettingsProvider>
+          <ToastProvider>
+            <AudioProvider>
+              <div dir={getDirection(locale)} className="flex min-h-screen flex-col">
+                <Nav />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </div>
+              <ServiceWorkerRegister />
+            </AudioProvider>
+          </ToastProvider>
+        </SettingsProvider>
+      </DirectionProvider>
     </NextIntlClientProvider>
   );
 }

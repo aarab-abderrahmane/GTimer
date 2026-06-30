@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Globe, ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { LOCALES, type Locale } from "@/lib/constants";
 import { COUNTRIES, getCountryFlag } from "@/lib/countries";
 import { useSettings } from "@/contexts/settings-context";
@@ -26,6 +26,7 @@ const LANGUAGE_NAMES: Record<Locale, string> = {
 
 export function LocalizationMenu() {
   const locale = useLocale() as Locale;
+  const t = useTranslations("settings");
   const pathname = usePathname();
   const router = useRouter();
   const { settings, updateSettings } = useSettings();
@@ -108,19 +109,19 @@ export function LocalizationMenu() {
                   fontFamily: "var(--font-body)"
                 }}
               >
-                Language
-              </button>
-              <button
-                onClick={() => setActiveTab("country")}
-                className="flex-1 py-2 text-[11px] font-bold uppercase tracking-wider transition-colors border-l border-white/10"
-                style={{
-                  color: activeTab === "country" ? "#FFD700" : "#9999BB",
-                  background: activeTab === "country" ? "rgba(192,132,240,0.1)" : "transparent",
-                  borderColor: "rgba(192,132,240,0.2)",
-                  fontFamily: "var(--font-body)"
-                }}
-              >
-                Country
+                  {t("language")}
+                </button>
+                <button
+                  onClick={() => setActiveTab("country")}
+                  className="flex-1 py-2 text-[11px] font-bold uppercase tracking-wider transition-colors border-s border-white/10"
+                  style={{
+                    color: activeTab === "country" ? "#FFD700" : "#9999BB",
+                    background: activeTab === "country" ? "rgba(192,132,240,0.1)" : "transparent",
+                    borderColor: "rgba(192,132,240,0.2)",
+                    fontFamily: "var(--font-body)"
+                  }}
+                >
+                  {t("country")}
               </button>
             </div>
 
@@ -129,7 +130,7 @@ export function LocalizationMenu() {
                 <button
                   key={l}
                   onClick={() => switchLocale(l)}
-                  className="flex w-full items-center gap-3 text-left transition-all duration-200"
+                  className="flex w-full items-center gap-3 text-start transition-all duration-200"
                   style={{
                     padding: "10px 16px",
                     fontFamily: "var(--font-body)",
@@ -157,7 +158,7 @@ export function LocalizationMenu() {
                   {l === locale && (
                     <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#FFD700", flexShrink: 0 }} />
                   )}
-                  <span className={cn(l !== locale && "ml-[14px]")}>{LANGUAGE_NAMES[l]}</span>
+                  <span className={cn(l !== locale && "ms-[14px]")}>{LANGUAGE_NAMES[l]}</span>
                 </button>
               ))}
 
@@ -166,7 +167,7 @@ export function LocalizationMenu() {
                   <div style={{ padding: "8px 12px", borderBottom: "1px solid rgba(192,132,240,0.1)" }}>
                     <input
                       type="text"
-                      placeholder="Search countries..."
+                      placeholder={t("searchCountries")}
                       value={countryQuery}
                       onChange={(e) => setCountryQuery(e.target.value)}
                       style={{
@@ -192,7 +193,7 @@ export function LocalizationMenu() {
                       onClick={() => {
                         updateSettings({ country: c.code, timezone: c.timezones[0] });
                       }}
-                      className="flex w-full items-center gap-3 text-left transition-all duration-200"
+                      className="flex w-full items-center gap-3 text-start transition-all duration-200"
                       style={{
                         padding: "10px 16px",
                         fontFamily: "var(--font-body)",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Barlow } from "next/font/google";
+import { Barlow_Condensed, Barlow, Noto_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 
@@ -15,6 +15,13 @@ const barlow = Barlow({
   weight: ["300", "400", "600", "700"],
   display: "swap",
   variable: "--font-barlow",
+});
+
+const notoSansArabic = Noto_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["300", "400", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-noto-sans-arabic",
 });
 
 export const metadata: Metadata = {
@@ -41,20 +48,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  other: {
-    "application-ld+json": JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: SITE_NAME,
-      description: SITE_DESCRIPTION,
-      url: SITE_URL,
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${SITE_URL}/?q={search_term_string}`,
-        "query-input": "required name=search_term_string",
-      },
-    }),
-  },
 };
 
 export default function RootLayout({
@@ -65,27 +58,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${barlowCondensed.variable} ${barlow.variable} h-full`}
+      className={`${barlowCondensed.variable} ${barlow.variable} ${notoSansArabic.variable} h-full`}
       suppressHydrationWarning
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: SITE_NAME,
-              description: SITE_DESCRIPTION,
-              url: SITE_URL,
-              potentialAction: {
-                "@type": "SearchAction",
-                target: `${SITE_URL}/?q={search_term_string}`,
-                "query-input": "required name=search_term_string",
-              },
-            }),
-          }}
-        />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <meta name="theme-color" content="#0d0d1e" />

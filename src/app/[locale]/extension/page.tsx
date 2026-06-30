@@ -51,7 +51,7 @@ export default async function ExtensionPage({ params }: { params: Promise<{ loca
           letterSpacing: "0.1em",
         }}
       >
-        Chrome &bull; Edge &bull; Firefox
+        {t("browsers")}
       </p>
       <p
         style={{
@@ -63,7 +63,7 @@ export default async function ExtensionPage({ params }: { params: Promise<{ loca
           textTransform: "uppercase",
         }}
       >
-        Coming soon
+        {t("comingSoon")}
       </p>
     </div>
   );

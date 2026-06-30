@@ -40,6 +40,7 @@
   --font-display:           var(--font-barlow-condensed), "Barlow Condensed", sans-serif;
   --font-display-condensed: var(--font-barlow-condensed), "Barlow Condensed", sans-serif;
   --font-body:              var(--font-barlow), "Barlow", sans-serif;
+  --font-arabic:            var(--font-noto-sans-arabic), "Noto Sans Arabic", sans-serif;
 
   /* Text scale */
   --text-hero:                    96px;
@@ -176,6 +177,13 @@ body {
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--color-bg-deep); }
 ::-webkit-scrollbar-thumb { background: var(--color-lavender); border-radius: 2px; }
+
+/* ─── RTL (Arabic) ────────────────────────────────────────────────── */
+[dir="rtl"] {
+  --font-display:           var(--font-noto-sans-arabic), "Noto Sans Arabic", sans-serif;
+  --font-display-condensed: var(--font-noto-sans-arabic), "Noto Sans Arabic", sans-serif;
+  --font-body:              var(--font-noto-sans-arabic), "Noto Sans Arabic", sans-serif;
+}
 
 /* ─── Reduced Motion ─────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {

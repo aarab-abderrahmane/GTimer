@@ -21,28 +21,43 @@
     "releaseDate": "2026年11月19日",
     "released": "GTA VI 已发布！",
     "heading": "侠盗猎车手 VI",
-    "subheading": "登陆 PlayStation 5 和 Xbox Series X|S"
+    "subheading": "登陆 PlayStation 5 和 Xbox Series X|S",
+    "comingDate": "2026年11月19日上线",
+    "secondsRemaining": "剩余秒数",
+    "preOrder": "立即预购"
   },
   "settings": {
+    "title": "设置",
     "language": "语言",
     "country": "国家",
     "music": "音乐",
     "volume": "音量",
     "sound": "音效",
-    "theme": "主题"
+    "theme": "主题",
+    "searchCountries": "搜索国家...",
+    "noCountriesFound": "未找到国家",
+    "musicOn": "音乐开启",
+    "musicOff": "音乐关闭"
   },
   "share": {
     "title": "分享 GTimer",
     "copyLink": "复制链接",
     "copied": "已复制！",
     "qrCode": "二维码",
-    "screenshot": "截图"
+    "screenshot": "截图",
+    "hideQR": "隐藏二维码",
+    "shareQR": "分享二维码",
+    "download": "下载",
+    "shareButton": "分享",
+    "copiedImage": "图片已复制 — 请粘贴到 Instagram！"
   },
   "extension": {
     "title": "安装 GTimer 扩展",
     "description": "将倒计时固定到浏览器工具栏。",
     "cta": "立即安装",
-    "dismiss": "稍后"
+    "dismiss": "稍后",
+    "browsers": "Chrome \u2022 Edge \u2022 Firefox",
+    "comingSoon": "即将推出"
   },
   "splash": {
     "loading": "加载中..."
@@ -55,8 +70,21 @@
     "description": "倒计时无需网络也能继续运行。"
   },
   "notFound": {
-    "title": "页面未找到",
     "description": "此页面不存在。",
     "cta": "返回首页"
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "description": "GTimer 是一个粉丝项目，不收集任何个人数据。",
+    "localStorage": "所有设置都通过 localStorage 存储在您的浏览器本地。不会向任何服务器发送信息。",
+    "analytics": "我们使用注重隐私的分析工具（Cloudflare Web Analytics），不使用 Cookie 也不收集个人信息。",
+    "contactTitle": "联系方式",
+    "contactDescription": "如果您有任何疑问，请在我们的 GitHub 仓库中提交 Issue。"
+  },
+  "termsPage": {
+    "title": "服务条款",
+    "description": "GTimer 是一个非官方的粉丝项目。我们与 Rockstar Games 或 Take-Two Interactive 无任何关联、认可或连接。",
+    "trademarks": "所有商标、版权和知识产权均归其各自所有者所有。",
+    "disclaimer": "倒计时按现状提供。虽然我们力求准确，但无法保证。"
   }
 }

@@ -21,28 +21,43 @@
     "releaseDate": "19 نوفمبر 2026",
     "released": "تم إصدار GTA VI!",
     "heading": "جراند ثفت أوتو VI",
-    "subheading": "قادم إلى PlayStation 5 و Xbox Series X|S"
+    "subheading": "قادم إلى PlayStation 5 و Xbox Series X|S",
+    "comingDate": "قادم في 19 نوفمبر 2026",
+    "secondsRemaining": "الثواني المتبقية",
+    "preOrder": "اطلب مسبقاً"
   },
   "settings": {
+    "title": "الإعدادات",
     "language": "اللغة",
     "country": "البلد",
     "music": "الموسيقى",
     "volume": "مستوى الصوت",
     "sound": "المؤثرات الصوتية",
-    "theme": "المظهر"
+    "theme": "المظهر",
+    "searchCountries": "البحث عن دول...",
+    "noCountriesFound": "لم يتم العثور على دول",
+    "musicOn": "الموسيقى مفعلة",
+    "musicOff": "الموسيقى معطلة"
   },
   "share": {
     "title": "مشاركة GTimer",
     "copyLink": "نسخ الرابط",
     "copied": "تم النسخ!",
     "qrCode": "رمز QR",
-    "screenshot": "لقطة الشاشة"
+    "screenshot": "لقطة الشاشة",
+    "hideQR": "إخفاء QR",
+    "shareQR": "مشاركة QR",
+    "download": "تحميل",
+    "shareButton": "مشاركة",
+    "copiedImage": "تم نسخ الصورة — الصقها في Instagram!"
   },
   "extension": {
     "title": "تثبيت إضافة GTimer",
     "description": "ثبت العد التنازلي في شريط أدوات المتصفح.",
     "cta": "تثبيت الآن",
-    "dismiss": "ربما لاحقاً"
+    "dismiss": "ربما لاحقاً",
+    "browsers": "Chrome \u2022 Edge \u2022 Firefox",
+    "comingSoon": "قريباً"
   },
   "splash": {
     "loading": "جاري التحميل..."
@@ -55,8 +70,21 @@
     "description": "العد التنازلي يستمر في العمل بدون إنترنت."
   },
   "notFound": {
-    "title": "الصفحة غير موجودة",
     "description": "هذه الصفحة غير موجودة.",
     "cta": "العودة للرئيسية"
+  },
+  "privacy": {
+    "title": "سياسة الخصوصية",
+    "description": "GTimer هو مشروع معجبين ولا يجمع أي بيانات شخصية.",
+    "localStorage": "جميع الإعدادات مخزنة محلياً في متصفحك باستخدام localStorage. لا يتم إرسال أي معلومات إلى أي خادم.",
+    "analytics": "نستخدم تحليلات صديقة للخصوصية (Cloudflare Web Analytics) لا تستخدم ملفات تعريف الارتباط أو تجمع معلومات شخصية.",
+    "contactTitle": "اتصل بنا",
+    "contactDescription": "إذا كان لديك أي أسئلة، يرجى فتح مشكلة في مستودع GitHub الخاص بنا."
+  },
+  "termsPage": {
+    "title": "شروط الخدمة",
+    "description": "GTimer هو مشروع معجبين غير رسمي. نحن غير تابعين أو مدعومين أو مرتبطين بـ Rockstar Games أو Take-Two Interactive.",
+    "trademarks": "جميع العلامات التجارية وحقوق النشر والملكية الفكرية تعود لأصحابها.",
+    "disclaimer": "العد التنازلي مقدم كما هو. بينما نسعى للدقة، لا يمكننا ضمانها."
   }
 }

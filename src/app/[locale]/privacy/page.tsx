@@ -1,4 +1,9 @@
-export default async function PrivacyPage() {
+import { getTranslations } from "next-intl/server";
+
+export default async function PrivacyPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "privacy" });
+
   const headingStyle = {
     fontFamily: "var(--font-display)",
     fontSize: "clamp(36px, 5vw, 56px)",
@@ -39,22 +44,12 @@ export default async function PrivacyPage() {
         gap: "20px",
       }}
     >
-      <h1 style={headingStyle}>Privacy Policy</h1>
-      <p style={bodyStyle}>
-        GTimer is a fan project and does not collect any personal data.
-      </p>
-      <p style={bodyStyle}>
-        All settings are stored locally in your browser using localStorage. No
-        information is sent to any server.
-      </p>
-      <p style={bodyStyle}>
-        We use privacy-friendly analytics (Cloudflare Web Analytics) that do not
-        use cookies or collect personal information.
-      </p>
-      <h2 style={subheadingStyle}>Contact</h2>
-      <p style={bodyStyle}>
-        If you have any questions, please open an issue on our GitHub repository.
-      </p>
+      <h1 style={headingStyle}>{t("title")}</h1>
+      <p style={bodyStyle}>{t("description")}</p>
+      <p style={bodyStyle}>{t("localStorage")}</p>
+      <p style={bodyStyle}>{t("analytics")}</p>
+      <h2 style={subheadingStyle}>{t("contactTitle")}</h2>
+      <p style={bodyStyle}>{t("contactDescription")}</p>
     </div>
   );
 }

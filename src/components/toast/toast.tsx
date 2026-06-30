@@ -63,7 +63,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               </span>
               <button
                 onClick={() => remove(toast.id)}
-                className="ml-[var(--spacing-sm)] shrink-0 rounded-full p-[2px] opacity-60 transition-opacity hover:opacity-100"
+                className="ms-[var(--spacing-sm)] shrink-0 rounded-full p-[2px] opacity-60 transition-opacity hover:opacity-100"
               >
                 <X className="h-3 w-3" />
               </button>

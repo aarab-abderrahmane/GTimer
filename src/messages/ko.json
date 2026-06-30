@@ -21,28 +21,43 @@
     "releaseDate": "2026년 11월 19일",
     "released": "GTA VI가 출시되었습니다!",
     "heading": "그랜드 테프트 오토 VI",
-    "subheading": "PlayStation 5 및 Xbox Series X|S로 출시"
+    "subheading": "PlayStation 5 및 Xbox Series X|S로 출시",
+    "comingDate": "2026년 11월 19일 출시",
+    "secondsRemaining": "남은 초",
+    "preOrder": "사전 주문"
   },
   "settings": {
+    "title": "설정",
     "language": "언어",
     "country": "국가",
     "music": "음악",
     "volume": "볼륨",
     "sound": "사운드 효과",
-    "theme": "테마"
+    "theme": "테마",
+    "searchCountries": "국가 검색...",
+    "noCountriesFound": "국가를 찾을 수 없습니다",
+    "musicOn": "음악 켜짐",
+    "musicOff": "음악 꺼짐"
   },
   "share": {
     "title": "GTimer 공유하기",
     "copyLink": "링크 복사",
     "copied": "복사되었습니다!",
     "qrCode": "QR 코드",
-    "screenshot": "스크린샷"
+    "screenshot": "스크린샷",
+    "hideQR": "QR 숨기기",
+    "shareQR": "QR 공유",
+    "download": "다운로드",
+    "shareButton": "공유",
+    "copiedImage": "이미지 복사됨 — Instagram에 붙여넣으세요!"
   },
   "extension": {
     "title": "GTimer 확장 프로그램 설치",
     "description": "카운트다운을 브라우저 툴바에 고정하세요.",
     "cta": "지금 설치",
-    "dismiss": "나중에"
+    "dismiss": "나중에",
+    "browsers": "Chrome \u2022 Edge \u2022 Firefox",
+    "comingSoon": "출시 예정"
   },
   "splash": {
     "loading": "로딩 중..."
@@ -55,8 +70,21 @@
     "description": "카운트다운은 인터넷 없이도 계속 작동합니다."
   },
   "notFound": {
-    "title": "페이지를 찾을 수 없습니다",
     "description": "이 페이지는 존재하지 않습니다.",
     "cta": "홈으로 가기"
+  },
+  "privacy": {
+    "title": "개인정보 처리방침",
+    "description": "GTimer는 팬 프로젝트로 개인 데이터를 수집하지 않습니다.",
+    "localStorage": "모든 설정은 localStorage를 사용하여 브라우저에 로컬로 저장됩니다. 어떤 정보도 서버로 전송되지 않습니다.",
+    "analytics": "당사는 쿠키를 사용하지 않고 개인 정보를 수집하지 않는 개인정보 친화적인 분석(Cloudflare Web Analytics)을 사용합니다.",
+    "contactTitle": "문의",
+    "contactDescription": "질문이 있으시면 GitHub 저장소에 이슈를 열어 주세요."
+  },
+  "termsPage": {
+    "title": "이용약관",
+    "description": "GTimer는 비공식 팬 프로젝트입니다. 당사는 Rockstar Games 또는 Take-Two Interactive와 제휴, 승인 또는 관련이 없습니다.",
+    "trademarks": "모든 상표, 저작권 및 지적 재산권은 해당 소유자에게 있습니다.",
+    "disclaimer": "카운트다운은 있는 그대로 제공됩니다. 정확성을 위해 노력하지만 보장할 수 없습니다."
   }
 }

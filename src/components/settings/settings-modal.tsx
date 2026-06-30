@@ -81,7 +81,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                   lineHeight: 1,
                 }}
               >
-                Settings
+                {t("title")}
               </h2>
               <button
                 onClick={onClose}
@@ -235,12 +235,12 @@ function ToggleSwitch({
         style={{
           position: "absolute",
           top: "2px",
-          left: enabled ? "20px" : "2px",
+          insetInlineStart: enabled ? "20px" : "2px",
           width: "16px",
           height: "16px",
           borderRadius: "50%",
           background: "#FFFFFF",
-          transition: "left 300ms cubic-bezier(0.22, 1, 0.36, 1)",
+          transition: "inset-inline-start 300ms cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       />
     </button>

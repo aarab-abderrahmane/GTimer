@@ -11,6 +11,7 @@ import { SOUND_EFFECTS } from "@/lib/music";
 import { useSettings } from "@/contexts/settings-context";
 
 function FinalSeconds({ seconds, onTick }: { seconds: number; onTick: () => void }) {
+  const t = useTranslations("countdown");
   const prevRef = useRef(seconds);
   const onTickRef = useRef(onTick);
   const isLastTen = seconds <= 10;
@@ -62,7 +63,7 @@ function FinalSeconds({ seconds, onTick }: { seconds: number; onTick: () => void
           transition: "color 0.4s",
         }}
       >
-        SECONDS REMAINING
+        {t("secondsRemaining")}
       </span>
     </div>
   );
@@ -149,7 +150,7 @@ export function Countdown({ time }: { time: CountdownTime }) {
             justifyContent: "center",
             background: "rgba(26, 16, 48, 0.85)",
             borderTop: "1px solid rgba(192, 132, 240, 0.15)",
-            borderLeft: "1px solid rgba(192, 132, 240, 0.08)",
+            borderInlineStart: "1px solid rgba(192, 132, 240, 0.08)",
             width: "clamp(64px, 9vw, 90px)",
             height: "clamp(72px, 10vw, 100px)",
             backdropFilter: "blur(8px)",

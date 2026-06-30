@@ -21,28 +21,43 @@
     "releaseDate": "19. November 2026",
     "released": "GTA VI ist erschienen!",
     "heading": "Grand Theft Auto VI",
-    "subheading": "Erhältlich für PlayStation 5 und Xbox Series X|S"
+    "subheading": "Erhältlich für PlayStation 5 und Xbox Series X|S",
+    "comingDate": "Verfügbar ab 19. November 2026",
+    "secondsRemaining": "SEKUNDEN ÜBRIG",
+    "preOrder": "Jetzt vorbestellen"
   },
   "settings": {
+    "title": "Einstellungen",
     "language": "Sprache",
     "country": "Land",
     "music": "Musik",
     "volume": "Lautstärke",
     "sound": "Soundeffekte",
-    "theme": "Design"
+    "theme": "Design",
+    "searchCountries": "Länder suchen...",
+    "noCountriesFound": "Keine Länder gefunden",
+    "musicOn": "Musik an",
+    "musicOff": "Musik aus"
   },
   "share": {
     "title": "GTimer teilen",
     "copyLink": "Link kopieren",
     "copied": "Kopiert!",
     "qrCode": "QR-Code",
-    "screenshot": "Screenshot"
+    "screenshot": "Screenshot",
+    "hideQR": "QR verstecken",
+    "shareQR": "QR teilen",
+    "download": "Herunterladen",
+    "shareButton": "Teilen",
+    "copiedImage": "Bild kopiert — in Instagram einfügen!"
   },
   "extension": {
     "title": "GTimer-Erweiterung installieren",
     "description": "Pinne den Countdown an deine Browser-Symbolleiste.",
     "cta": "Jetzt installieren",
-    "dismiss": "Vielleicht später"
+    "dismiss": "Vielleicht später",
+    "browsers": "Chrome \u2022 Edge \u2022 Firefox",
+    "comingSoon": "Demnächst"
   },
   "splash": {
     "loading": "Wird geladen..."
@@ -55,8 +70,21 @@
     "description": "Der Countdown funktioniert weiterhin ohne Internet."
   },
   "notFound": {
-    "title": "Seite nicht gefunden",
     "description": "Diese Seite existiert nicht.",
     "cta": "Zur Startseite"
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "description": "GTimer ist ein Fan-Projekt und sammelt keine persönlichen Daten.",
+    "localStorage": "Alle Einstellungen werden lokal in deinem Browser über localStorage gespeichert. Es werden keine Informationen an einen Server gesendet.",
+    "analytics": "Wir verwenden datenschutzfreundliche Analysen (Cloudflare Web Analytics), die keine Cookies verwenden oder persönliche Daten sammeln.",
+    "contactTitle": "Kontakt",
+    "contactDescription": "Wenn du Fragen hast, öffne bitte ein Issue in unserem GitHub-Repository."
+  },
+  "termsPage": {
+    "title": "Nutzungsbedingungen",
+    "description": "GTimer ist ein inoffizielles Fan-Projekt. Wir sind nicht mit Rockstar Games oder Take-Two Interactive verbunden, von ihnen unterstützt oder autorisiert.",
+    "trademarks": "Alle Marken, Urheberrechte und geistigen Eigentumsrechte gehören ihren jeweiligen Inhabern.",
+    "disclaimer": "Der Countdown wird wie besehen bereitgestellt. Obwohl wir uns um Genauigkeit bemühen, können wir diese nicht garantieren."
   }
 }

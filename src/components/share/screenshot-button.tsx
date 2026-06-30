@@ -179,7 +179,7 @@ export function ScreenshotButton({ data }: ScreenshotButtonProps) {
                   textTransform: "uppercase",
                 }}
               >
-                Screenshot
+                {t("screenshot")}
               </span>
               <button
                 onClick={handleClose}
@@ -249,7 +249,7 @@ export function ScreenshotButton({ data }: ScreenshotButtonProps) {
                   }}
                 >
                   <Download className="h-4 w-4" />
-                  Download
+                  {t("download")}
                 </button>
                 {typeof navigator.share === "function" && (
                   <button
@@ -274,7 +274,7 @@ export function ScreenshotButton({ data }: ScreenshotButtonProps) {
                     }}
                   >
                     <Share2 className="h-4 w-4" />
-                    Share
+                    {t("shareButton")}
                   </button>
                 )}
               </div>
@@ -368,7 +368,7 @@ export function ScreenshotButton({ data }: ScreenshotButtonProps) {
                     padding: "4px 0",
                   }}
                 >
-                  Image copied — paste in Instagram!
+                  {t("copiedImage")}
                 </motion.div>
               )}
             </div>

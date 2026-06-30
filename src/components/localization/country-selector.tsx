@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, MapPin, Search } from "lucide-react";
 import { COUNTRIES, getCountryFlag } from "@/lib/countries";
 import { useSettings } from "@/contexts/settings-context";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 export function CountrySelector() {
   const { settings, updateSettings } = useSettings();
+  const t = useTranslations("settings");
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -65,7 +67,7 @@ export function CountrySelector() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.95 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute right-0 top-full z-50 overflow-hidden"
+            className="absolute end-0 top-full z-50 overflow-hidden"
             style={{
               marginTop: "8px",
               width: "220px",
@@ -76,15 +78,18 @@ export function CountrySelector() {
           >
             <div style={{ padding: "8px 12px", borderBottom: "1px solid rgba(192,132,240,0.1)" }}>
               <div className="relative flex items-center">
-                <Search className="absolute left-2 h-3.5 w-3.5" style={{ color: "#9999BB" }} />
+                <Search className="absolute start-2 h-3.5 w-3.5" style={{ color: "#9999BB" }} />
                 <input
                   type="text"
-                  placeholder="Search countries..."
+                  placeholder={t("searchCountries")}
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   style={{
                     width: "100%",
-                    padding: "6px 10px 6px 28px",
+                    paddingTop: "6px",
+                    paddingBottom: "6px",
+                    paddingInlineStart: "28px",
+                    paddingInlineEnd: "10px",
                     fontFamily: "var(--font-body)",
                     fontSize: "12px",
                     background: "rgba(26,16,48,0.6)",
@@ -109,7 +114,7 @@ export function CountrySelector() {
                     textAlign: "center",
                   }}
                 >
-                  No countries found
+                  {t("noCountriesFound")}
                 </p>
               )}
               {filtered.map((country) => (
@@ -120,7 +125,7 @@ export function CountrySelector() {
                     setIsOpen(false);
                     setQuery("");
                   }}
-                  className="flex w-full items-center gap-3 text-left transition-all duration-200"
+                  className="flex w-full items-center gap-3 text-start transition-all duration-200"
                   style={{
                     padding: "10px 16px",
                     fontFamily: "var(--font-body)",

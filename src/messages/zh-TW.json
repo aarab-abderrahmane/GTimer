@@ -21,28 +21,43 @@
     "releaseDate": "2026年11月19日",
     "released": "GTA VI 已發布！",
     "heading": "俠盜獵車手 VI",
-    "subheading": "登陸 PlayStation 5 和 Xbox Series X|S"
+    "subheading": "登陸 PlayStation 5 和 Xbox Series X|S",
+    "comingDate": "2026年11月19日上線",
+    "secondsRemaining": "剩餘秒數",
+    "preOrder": "立即預購"
   },
   "settings": {
+    "title": "設定",
     "language": "語言",
     "country": "國家",
     "music": "音樂",
     "volume": "音量",
     "sound": "音效",
-    "theme": "主題"
+    "theme": "主題",
+    "searchCountries": "搜尋國家...",
+    "noCountriesFound": "找不到國家",
+    "musicOn": "音樂開啟",
+    "musicOff": "音樂關閉"
   },
   "share": {
     "title": "分享 GTimer",
     "copyLink": "複製連結",
     "copied": "已複製！",
     "qrCode": "QR 碼",
-    "screenshot": "截圖"
+    "screenshot": "截圖",
+    "hideQR": "隱藏 QR",
+    "shareQR": "分享 QR",
+    "download": "下載",
+    "shareButton": "分享",
+    "copiedImage": "圖片已複製 — 請貼到 Instagram！"
   },
   "extension": {
     "title": "安裝 GTimer 擴充功能",
     "description": "將倒數計時固定到瀏覽器工具列。",
     "cta": "立即安裝",
-    "dismiss": "稍後再說"
+    "dismiss": "稍後再說",
+    "browsers": "Chrome \u2022 Edge \u2022 Firefox",
+    "comingSoon": "即將推出"
   },
   "splash": {
     "loading": "載入中..."
@@ -55,8 +70,21 @@
     "description": "倒數計時無需網路也能繼續運作。"
   },
   "notFound": {
-    "title": "找不到頁面",
     "description": "此頁面不存在。",
     "cta": "返回首頁"
+  },
+  "privacy": {
+    "title": "隱私權政策",
+    "description": "GTimer 是一個粉絲專案，不收集任何個人資料。",
+    "localStorage": "所有設定都透過 localStorage 儲存在您的瀏覽器本地。不會向任何伺服器傳送資訊。",
+    "analytics": "我們使用注重隱私的分析工具（Cloudflare Web Analytics），不使用 Cookie 也不收集個人資訊。",
+    "contactTitle": "聯絡方式",
+    "contactDescription": "如果您有任何疑問，請在我們的 GitHub 儲存庫中開啟 Issue。"
+  },
+  "termsPage": {
+    "title": "服務條款",
+    "description": "GTimer 是一個非官方的粉絲專案。我們與 Rockstar Games 或 Take-Two Interactive 無任何關聯、認可或連線。",
+    "trademarks": "所有商標、版權和智慧財產權均歸其各自所有者所有。",
+    "disclaimer": "倒數計時按現狀提供。雖然我們力求準確，但無法保證。"
   }
 }

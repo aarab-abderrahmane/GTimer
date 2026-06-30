@@ -88,7 +88,7 @@ export function MusicPlayer() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.95 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute left-0 top-full z-50 overflow-hidden"
+            className="absolute start-0 top-full z-50 overflow-hidden"
             style={{
               marginTop: "8px",
               width: "224px",
@@ -104,7 +104,7 @@ export function MusicPlayer() {
                   selectTrack(track);
                   setIsOpen(false);
                 }}
-                className="flex w-full items-center gap-3 text-left transition-all duration-200"
+                className="flex w-full items-center gap-3 text-start transition-all duration-200"
                 style={{
                   padding: "10px 16px",
                   fontFamily: "var(--font-body)",

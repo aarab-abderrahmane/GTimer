@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const tn = useTranslations("nav");
 
   return (
     <footer
@@ -36,7 +37,7 @@ export function Footer() {
             (e.currentTarget as HTMLElement).style.color = "#9999BB";
           }}
         >
-          Privacy
+          {tn("privacy")}
         </Link>
         <span style={{ color: "rgba(192,132,240,0.25)", fontSize: "11px" }}>|</span>
         <Link
@@ -58,7 +59,7 @@ export function Footer() {
             (e.currentTarget as HTMLElement).style.color = "#9999BB";
           }}
         >
-          Terms
+          {tn("terms")}
         </Link>
       </div>
       <p

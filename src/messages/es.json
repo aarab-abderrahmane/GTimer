@@ -21,28 +21,43 @@
     "releaseDate": "19 de noviembre de 2026",
     "released": "¡GTA VI ya está disponible!",
     "heading": "Grand Theft Auto VI",
-    "subheading": "Disponible en PlayStation 5 y Xbox Series X|S"
+    "subheading": "Disponible en PlayStation 5 y Xbox Series X|S",
+    "comingDate": "Disponible el 19 de noviembre de 2026",
+    "secondsRemaining": "SEGUNDOS RESTANTES",
+    "preOrder": "Reservar ahora"
   },
   "settings": {
+    "title": "Ajustes",
     "language": "Idioma",
     "country": "País",
     "music": "Música",
     "volume": "Volumen",
     "sound": "Efectos de sonido",
-    "theme": "Tema"
+    "theme": "Tema",
+    "searchCountries": "Buscar países...",
+    "noCountriesFound": "No se encontraron países",
+    "musicOn": "Música activada",
+    "musicOff": "Música desactivada"
   },
   "share": {
     "title": "Compartir GTimer",
     "copyLink": "Copiar enlace",
     "copied": "¡Copiado!",
     "qrCode": "Código QR",
-    "screenshot": "Captura de pantalla"
+    "screenshot": "Captura de pantalla",
+    "hideQR": "Ocultar QR",
+    "shareQR": "Compartir QR",
+    "download": "Descargar",
+    "shareButton": "Compartir",
+    "copiedImage": "Imagen copiada — ¡pégala en Instagram!"
   },
   "extension": {
     "title": "Instalar extensión GTimer",
     "description": "Fija la cuenta regresiva en tu barra de herramientas.",
     "cta": "Instalar ahora",
-    "dismiss": "Más tarde"
+    "dismiss": "Más tarde",
+    "browsers": "Chrome \u2022 Edge \u2022 Firefox",
+    "comingSoon": "Próximamente"
   },
   "splash": {
     "loading": "Cargando..."
@@ -55,8 +70,21 @@
     "description": "La cuenta regresiva sigue funcionando sin Internet."
   },
   "notFound": {
-    "title": "Página no encontrada",
     "description": "Esta página no existe.",
     "cta": "Ir al inicio"
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "description": "GTimer es un proyecto de fans y no recopila ningún dato personal.",
+    "localStorage": "Todos los ajustes se almacenan localmente en tu navegador usando localStorage. No se envía información a ningún servidor.",
+    "analytics": "Utilizamos analytics respetuosos con la privacidad (Cloudflare Web Analytics) que no usan cookies ni recopilan información personal.",
+    "contactTitle": "Contacto",
+    "contactDescription": "Si tienes alguna pregunta, abre un issue en nuestro repositorio de GitHub."
+  },
+  "termsPage": {
+    "title": "Términos de servicio",
+    "description": "GTimer es un proyecto de fans no oficial. No estamos afiliados, respaldados ni conectados con Rockstar Games o Take-Two Interactive.",
+    "trademarks": "Todas las marcas comerciales, derechos de autor y propiedad intelectual pertenecen a sus respectivos dueños.",
+    "disclaimer": "La cuenta regresiva se proporciona tal cual. Aunque nos esforzamos por la precisión, no podemos garantizarla."
   }
 }

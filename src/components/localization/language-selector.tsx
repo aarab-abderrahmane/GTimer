@@ -82,7 +82,7 @@ export function LanguageSelector() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.95 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute right-0 top-full z-50 overflow-y-auto"
+            className="absolute end-0 top-full z-50 overflow-y-auto"
             style={{
               marginTop: "8px",
               maxHeight: "240px",
@@ -96,7 +96,7 @@ export function LanguageSelector() {
               <button
                 key={l}
                 onClick={() => switchLocale(l)}
-                className="flex w-full items-center gap-3 text-left transition-all duration-200"
+                className="flex w-full items-center gap-3 text-start transition-all duration-200"
                 style={{
                   padding: "10px 16px",
                   fontFamily: "var(--font-body)",
@@ -137,7 +137,7 @@ export function LanguageSelector() {
                     }}
                   />
                 )}
-                <span className={cn(l !== locale && "ml-[14px]")}>
+                <span className={cn(l !== locale && "ms-[14px]")}>
                   {LANGUAGE_NAMES[l]}
                 </span>
               </button>

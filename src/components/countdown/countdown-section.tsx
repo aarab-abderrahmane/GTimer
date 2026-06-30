@@ -36,6 +36,7 @@ export function CountdownSection({
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const t = useTranslations("countdown");
+  const ts = useTranslations("share");
   const { country, timezone, timezoneOffset } = useCountry();
   const time = useCountdown();
 
@@ -83,26 +84,28 @@ export function CountdownSection({
         style={{ paddingTop: "80px", paddingBottom: "48px", width: "100%" }}
       >
         {/* Eyebrow label — gold, tracked */}
-        <div
-          className={cn(
-            "mb-6 transition-all duration-700",
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-          )}
-          style={{ transitionDelay: "0ms" }}
-        >
-          <span
+          <p
             style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "11px",
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(18px, 2.5vw, 24px)",
               fontWeight: 700,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
+              letterSpacing: "0.05em",
               color: "#FFD700",
+              margin: 0,
+              lineHeight: 1.3,
             }}
           >
-            COMING NOVEMBER 19, 2026
-          </span>
-        </div>
+            {t('comingDate')}
+          </p>
+
+          <div
+            style={{
+              width: "clamp(40px, 6vw, 60px)",
+              height: "1px",
+              background:
+                "linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent)",
+            }}
+          />
 
         {/* Hero headline */}
         <h1
@@ -166,30 +169,46 @@ export function CountdownSection({
         {/* Release date + timezone */}
         <div
           className={cn(
-            "mt-10 flex flex-col items-center gap-2 transition-all duration-700",
+            "mt-10 flex flex-col items-center gap-4 transition-all duration-700",
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
           style={{ transitionDelay: "500ms" }}
         >
-          <p
+        
+
+          <div
+            className="flex items-center gap-2"
             style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "14px",
-              fontWeight: 300,
-              color: "#E0E0FF",
+              background: "rgba(48, 46, 16, 0.21)",
+              borderRadius: "50px",
+              padding: "6px 16px",
+              backdropFilter: "blur(8px)",
             }}
           >
-            {t("releaseDate")}: {releaseDate}
-          </p>
-          <p
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "12px",
-              color: "#9999BB",
-            }}
-          >
-            {country.flag} {timezone} ({timezoneOffset})
-          </p>
+            <span style={{ fontSize: "14px", lineHeight: 1 }}>
+              {country.flag}
+            </span>
+            <span
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "11px",
+                fontWeight: 600,
+                color: "#E0E0FF",
+              }}
+            >
+              {timezone}
+            </span>
+            <span
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "10px",
+                fontWeight: 400,
+                color: "#9999BB",
+              }}
+            >
+              ({timezoneOffset})
+            </span>
+          </div>
         </div>
 
         {/* CTA Row: Pre-Order + button group */}
@@ -231,7 +250,7 @@ export function CountdownSection({
                   "glow-pulse 3s ease-in-out infinite";
               }}
             >
-              Pre-Order Now
+              {t("preOrder")}
             </a>
 
             {/* Button group: Screenshot + Copy Link */}
@@ -278,7 +297,7 @@ export function CountdownSection({
               (e.currentTarget as HTMLElement).style.color = "#9999BB";
             }}
           >
-            {showQR ? "Hide QR" : "Share QR"}
+            {showQR ? ts("hideQR") : ts("shareQR")}
           </button>
         </div>
 

@@ -28,7 +28,7 @@ export function AnimatedDigit({ value, label, digits = 2 }: AnimatedDigitProps) 
               /* Matte dark surface — no rounded corners on cards */
               background: "rgba(26, 16, 48, 0.85)",
               borderTop: "1px solid rgba(192, 132, 240, 0.15)",
-              borderLeft: "1px solid rgba(192, 132, 240, 0.08)",
+              borderInlineStart: "1px solid rgba(192, 132, 240, 0.08)",
               width: "clamp(56px, 8vw, 80px)",
               height: "clamp(72px, 10vw, 100px)",
               backdropFilter: "blur(8px)",

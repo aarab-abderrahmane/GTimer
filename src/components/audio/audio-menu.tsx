@@ -71,7 +71,7 @@ export function AudioMenu() {
             color: "#E0E0FF",
             border: "none",
             cursor: "pointer",
-            borderLeft: "1px solid rgba(192,132,240,0.2)",
+            borderInlineStart: "1px solid rgba(192,132,240,0.2)",
             background: "transparent",
           }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#FFFFFF"; }}
@@ -154,12 +154,12 @@ export function AudioMenu() {
                   style={{
                     position: "absolute",
                     top: "1px",
-                    left: settings.soundEnabled ? "17px" : "1px",
+                    insetInlineStart: settings.soundEnabled ? "17px" : "1px",
                     width: "16px",
                     height: "16px",
                     borderRadius: "50%",
                     background: "#FFFFFF",
-                    transition: "left 300ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    transition: "inset-inline-start 300ms cubic-bezier(0.22, 1, 0.36, 1)",
                   }}
                 />
               </button>
@@ -173,7 +173,7 @@ export function AudioMenu() {
                   onClick={() => {
                     selectTrack(track);
                   }}
-                  className="flex w-full items-center gap-3 text-left transition-all duration-200"
+                  className="flex w-full items-center gap-3 text-start transition-all duration-200"
                   style={{
                     padding: "10px 16px",
                     fontFamily: "var(--font-body)",

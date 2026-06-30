@@ -21,28 +21,43 @@
     "releaseDate": "2026年11月19日",
     "released": "GTA VIが発売されました！",
     "heading": "グランド・セフト・オートVI",
-    "subheading": "PlayStation 5およびXbox Series X|Sで発売"
+    "subheading": "PlayStation 5およびXbox Series X|Sで発売",
+    "comingDate": "2026年11月19日発売",
+    "secondsRemaining": "残り秒数",
+    "preOrder": "予約注文"
   },
   "settings": {
+    "title": "設定",
     "language": "言語",
     "country": "国",
     "music": "音楽",
     "volume": "音量",
     "sound": "効果音",
-    "theme": "テーマ"
+    "theme": "テーマ",
+    "searchCountries": "国を検索...",
+    "noCountriesFound": "国が見つかりません",
+    "musicOn": "音楽オン",
+    "musicOff": "音楽オフ"
   },
   "share": {
     "title": "GTimerをシェア",
     "copyLink": "リンクをコピー",
     "copied": "コピーしました！",
     "qrCode": "QRコード",
-    "screenshot": "スクリーンショット"
+    "screenshot": "スクリーンショット",
+    "hideQR": "QRを隠す",
+    "shareQR": "QRをシェア",
+    "download": "ダウンロード",
+    "shareButton": "シェア",
+    "copiedImage": "画像をコピーしました — Instagramに貼り付けてください！"
   },
   "extension": {
     "title": "GTimer拡張機能をインストール",
     "description": "カウントダウンをツールバーにピン留めします。",
     "cta": "今すぐインストール",
-    "dismiss": "後で"
+    "dismiss": "後で",
+    "browsers": "Chrome \u2022 Edge \u2022 Firefox",
+    "comingSoon": "近日公開"
   },
   "splash": {
     "loading": "読み込み中..."
@@ -55,8 +70,21 @@
     "description": "カウントダウンはインターネットなしでも動作し続けます。"
   },
   "notFound": {
-    "title": "ページが見つかりません",
     "description": "このページは存在しません。",
     "cta": "ホームに戻る"
+  },
+  "privacy": {
+    "title": "プライバシーポリシー",
+    "description": "GTimerはファンプロジェクトであり、個人データを収集しません。",
+    "localStorage": "すべての設定は、localStorageを使用してブラウザにローカルに保存されます。サーバーに情報が送信されることはありません。",
+    "analytics": "当サイトはプライバシーに配慮した分析（Cloudflare Web Analytics）を使用しており、クッキーを使用せず、個人情報を収集しません。",
+    "contactTitle": "お問い合わせ",
+    "contactDescription": "ご質問がある場合は、GitHubリポジトリでIssueを開いてください。"
+  },
+  "termsPage": {
+    "title": "利用規約",
+    "description": "GTimerは非公式のファンプロジェクトです。当サイトはRockstar GamesやTake-Two Interactiveとは提携、承認、または関連していません。",
+    "trademarks": "すべての商標、著作権、知的財産はそれぞれの所有者に帰属します。",
+    "disclaimer": "カウントダウンは現状のまま提供されます。正確性には努めていますが、保証するものではありません。"
   }
 }

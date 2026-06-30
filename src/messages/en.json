@@ -21,28 +21,43 @@
     "releaseDate": "November 19, 2026",
     "released": "GTA VI has been released!",
     "heading": "Grand Theft Auto VI",
-    "subheading": "Coming to PlayStation 5 and Xbox Series X|S"
+    "subheading": "Coming to PlayStation 5 and Xbox Series X|S",
+    "comingDate": "Coming November 19, 2026",
+    "secondsRemaining": "SECONDS REMAINING",
+    "preOrder": "Pre-Order Now"
   },
   "settings": {
+    "title": "Settings",
     "language": "Language",
     "country": "Country",
     "music": "Music",
     "volume": "Volume",
     "sound": "Sound Effects",
-    "theme": "Theme"
+    "theme": "Theme",
+    "searchCountries": "Search countries...",
+    "noCountriesFound": "No countries found",
+    "musicOn": "Music On",
+    "musicOff": "Music Off"
   },
   "share": {
     "title": "Share GTimer",
     "copyLink": "Copy Link",
     "copied": "Copied!",
     "qrCode": "QR Code",
-    "screenshot": "Screenshot"
+    "screenshot": "Screenshot",
+    "hideQR": "Hide QR",
+    "shareQR": "Share QR",
+    "download": "Download",
+    "shareButton": "Share",
+    "copiedImage": "Image copied — paste in Instagram!"
   },
   "extension": {
     "title": "Install GTimer Extension",
     "description": "Pin the countdown to your browser toolbar.",
     "cta": "Install Now",
-    "dismiss": "Maybe later"
+    "dismiss": "Maybe later",
+    "browsers": "Chrome \u2022 Edge \u2022 Firefox",
+    "comingSoon": "Coming soon"
   },
   "splash": {
     "loading": "Loading..."
@@ -55,8 +70,21 @@
     "description": "The countdown continues working without internet."
   },
   "notFound": {
-    "title": "Page not found",
     "description": "This page doesn't exist.",
     "cta": "Go home"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "GTimer is a fan project and does not collect any personal data.",
+    "localStorage": "All settings are stored locally in your browser using localStorage. No information is sent to any server.",
+    "analytics": "We use privacy-friendly analytics (Cloudflare Web Analytics) that do not use cookies or collect personal information.",
+    "contactTitle": "Contact",
+    "contactDescription": "If you have any questions, please open an issue on our GitHub repository."
+  },
+  "termsPage": {
+    "title": "Terms of Service",
+    "description": "GTimer is an unofficial fan project. We are not affiliated with, endorsed by, or connected to Rockstar Games or Take-Two Interactive.",
+    "trademarks": "All trademarks, copyrights, and intellectual property belong to their respective owners.",
+    "disclaimer": "The countdown is provided as-is. While we strive for accuracy, we cannot guarantee it."
   }
 }

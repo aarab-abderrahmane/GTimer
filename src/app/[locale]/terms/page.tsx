@@ -1,4 +1,9 @@
-export default async function TermsPage() {
+import { getTranslations } from "next-intl/server";
+
+export default async function TermsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "termsPage" });
+
   const headingStyle = {
     fontFamily: "var(--font-display)",
     fontSize: "clamp(36px, 5vw, 56px)",
@@ -29,19 +34,10 @@ export default async function TermsPage() {
         gap: "20px",
       }}
     >
-      <h1 style={headingStyle}>Terms of Service</h1>
-      <p style={bodyStyle}>
-        GTimer is an unofficial fan project. We are not affiliated with,
-        endorsed by, or connected to Rockstar Games or Take-Two Interactive.
-      </p>
-      <p style={bodyStyle}>
-        All trademarks, copyrights, and intellectual property belong to their
-        respective owners.
-      </p>
-      <p style={bodyStyle}>
-        The countdown is provided as-is. While we strive for accuracy, we cannot
-        guarantee it.
-      </p>
+      <h1 style={headingStyle}>{t("title")}</h1>
+      <p style={bodyStyle}>{t("description")}</p>
+      <p style={bodyStyle}>{t("trademarks")}</p>
+      <p style={bodyStyle}>{t("disclaimer")}</p>
     </div>
   );
 }

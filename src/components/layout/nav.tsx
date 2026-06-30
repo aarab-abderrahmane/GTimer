@@ -22,7 +22,7 @@ export function Nav() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between"
+      className="fixed top-0 inset-x-0 z-40 flex items-center justify-between"
       style={{
         padding: "16px 32px",
         backdropFilter: "blur(10px)",
