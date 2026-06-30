@@ -35,7 +35,8 @@
     "title": "GTimerをシェア",
     "copyLink": "リンクをコピー",
     "copied": "コピーしました！",
-    "qrCode": "QRコード"
+    "qrCode": "QRコード",
+    "screenshot": "スクリーンショット"
   },
   "extension": {
     "title": "GTimer拡張機能をインストール",

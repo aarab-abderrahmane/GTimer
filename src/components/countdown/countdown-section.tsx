@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, lazy, Suspense, useEffect, useRef } from "react";
+import { useState, lazy, Suspense, useEffect, useRef, useMemo } from "react";
 import { BackgroundVideo } from "../background/background-video";
 import { BackgroundOverlay } from "@/components/background/background-overlay";
 import { Countdown } from "@/components/countdown/countdown";
 import { VILoader } from "@/components/countdown/vi-loader";
 import { CopyLink } from "@/components/share/copy-link";
+import { ScreenshotButton } from "@/components/share/screenshot-button";
 import { useCountry } from "@/hooks/use-country";
+import { useCountdown } from "@/hooks/use-countdown";
 
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
@@ -35,6 +37,18 @@ export function CountdownSection({
   const sectionRef = useRef<HTMLElement>(null);
   const t = useTranslations("countdown");
   const { country, timezone, timezoneOffset } = useCountry();
+  const time = useCountdown();
+
+  const screenshotData = useMemo(() => ({
+    days: time.days,
+    hours: time.hours,
+    minutes: time.minutes,
+    seconds: time.seconds,
+    timezone,
+    timezoneOffset,
+    countryFlag: country.flag,
+    logoUrl: "/images/gta-vi-logo.png" 
+  }), [time.days, time.hours, time.minutes, time.seconds, timezone, timezoneOffset, country.flag]);
 
   // Staggered scroll-reveal on mount
   useEffect(() => {
@@ -146,7 +160,7 @@ export function CountdownSection({
           )}
           style={{ transitionDelay: "400ms" }}
         >
-          <Countdown />
+          <Countdown time={time} />
         </div>
 
         {/* Release date + timezone */}
@@ -178,18 +192,18 @@ export function CountdownSection({
           </p>
         </div>
 
-        {/* CTA Row: Pre-Order + Copy Link */}
+        {/* CTA Row: Pre-Order + button group */}
         <div className="flex flex-col items-center gap-4 mt-10">
           <div
             className={cn(
-              "flex flex-wrap items-center justify-center gap-6 transition-all duration-700",
+              "flex flex-wrap items-center justify-center gap-4 transition-all duration-700",
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
             )}
             style={{ transitionDelay: "600ms" }}
           >
             {/* Primary CTA — hot pink pill */}
             <a
-              href="https://www.rockstargames.com/VI"
+              href="https://www.amazon.com/Midnight-1-PlayStation-5/dp/B0H6K928WL?sr=8-2&language=en_US&ref_=as_li_ss_tl"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-full px-8 py-3 transition-all duration-300"
@@ -220,10 +234,29 @@ export function CountdownSection({
               Pre-Order Now
             </a>
 
-            <CopyLink />
+            {/* Button group: Screenshot + Copy Link */}
+            <div
+              className="flex items-center px-2 py-3.5 overflow-hidden rounded-full"
+              style={{
+                background: "rgba(26, 16, 48, 0.21)",
+                border: "1px solid rgba(191, 132, 240, 0.14)",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              <ScreenshotButton data={screenshotData} />
+              <div
+                style={{
+                  width: "1px",
+                  height: "20px",
+                  background: "rgba(192,132,240,0.2)",
+                  flexShrink: 0,
+                }}
+              />
+              <CopyLink />
+            </div>
           </div>
 
-          {/* Share QR — below the two buttons */}
+          {/* Share QR — below */}
           <button
             onClick={() => setShowQR(!showQR)}
             style={{

@@ -58,7 +58,6 @@ export function AudioMenu() {
           aria-label={isPlaying ? "Pause music" : "Play music"}
         >
           {isPlaying ? <Pause className="h-3.5 w-3.5 shrink-0" /> : <Play className="h-3.5 w-3.5 shrink-0" />}
-          <Music className="h-3 w-3 shrink-0" />
         </button>
 
         <button
@@ -79,6 +78,8 @@ export function AudioMenu() {
           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#E0E0FF"; }}
           aria-label="Select track"
         >
+          <Music className="h-3 w-3 shrink-0" />
+
           <span
             style={{
               maxWidth: "72px",

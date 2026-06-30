@@ -19,7 +19,7 @@ export function CopyLink() {
   return (
     <button
       onClick={handleCopy}
-      className="group flex items-center gap-2 transition-all px-3 py-3 rounded-full backdrop-blur-3xl duration-300"
+      className="group flex items-center gap-2 transition-all px-3  rounded-full  duration-300"
       style={{
         fontFamily: "var(--font-body)",
         fontSize: "13px",
@@ -44,7 +44,7 @@ export function CopyLink() {
       ) : (
         <Copy className="h-4 w-4" />
       )}
-      <span>{copied ? t("copied") : t("copyLink")}</span>
+      <span className="hidden group-hover:inline">{copied ? t("copied") : t("copyLink")}</span>
     </button>
   );
 }

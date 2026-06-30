@@ -35,7 +35,8 @@
     "title": "Partager GTimer",
     "copyLink": "Copier le lien",
     "copied": "Copié !",
-    "qrCode": "Code QR"
+    "qrCode": "Code QR",
+    "screenshot": "Capture d'écran"
   },
   "extension": {
     "title": "Installer l'extension GTimer",

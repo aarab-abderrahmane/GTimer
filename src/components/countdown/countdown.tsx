@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import confetti from "canvas-confetti";
-import { useCountdown } from "@/hooks/use-countdown";
+import { type CountdownTime } from "@/hooks/use-countdown";
 import { AnimatedDigit } from "./animated-digit";
 import { useTranslations } from "next-intl";
 import { useTickSound, useTick2Sound } from "@/components/audio/sound-effects";
@@ -68,8 +68,7 @@ function FinalSeconds({ seconds, onTick }: { seconds: number; onTick: () => void
   );
 }
 
-export function Countdown() {
-  const time = useCountdown();
+export function Countdown({ time }: { time: CountdownTime }) {
   const t = useTranslations("countdown");
   const tick = useTickSound();
   const tick2 = useTick2Sound();

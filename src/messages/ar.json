@@ -35,7 +35,8 @@
     "title": "مشاركة GTimer",
     "copyLink": "نسخ الرابط",
     "copied": "تم النسخ!",
-    "qrCode": "رمز QR"
+    "qrCode": "رمز QR",
+    "screenshot": "لقطة الشاشة"
   },
   "extension": {
     "title": "تثبيت إضافة GTimer",

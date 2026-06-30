@@ -35,7 +35,8 @@
     "title": "分享 GTimer",
     "copyLink": "複製連結",
     "copied": "已複製！",
-    "qrCode": "QR 碼"
+    "qrCode": "QR 碼",
+    "screenshot": "截圖"
   },
   "extension": {
     "title": "安裝 GTimer 擴充功能",
