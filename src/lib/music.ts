@@ -15,5 +15,5 @@ export const TRACKS: Track[] = [
 ];
 
 export const SOUND_EFFECTS = {
-  celebration: "https://github.com/aabderahman190-oss/gtimer_video/releases/download/v2.0/celebration.mp3",
+  celebration: "/audio/celebration.mp3",
 } as const;
