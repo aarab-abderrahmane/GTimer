@@ -44,7 +44,7 @@ export function CopyLink() {
       ) : (
         <Copy className="h-4 w-4" />
       )}
-      <span className="hidden group-hover:inline">{copied ? t("copied") : t("copyLink")}</span>
+      <span className="hidden sm:group-hover:inline">{copied ? t("copied") : t("copyLink")}</span>
     </button>
   );
 }

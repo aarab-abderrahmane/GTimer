@@ -5,24 +5,11 @@ import { motion, AnimatePresence } from "motion/react";
 import { Globe, ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { LOCALES, type Locale } from "@/lib/constants";
+import { LOCALES, LANGUAGE_NAMES, type Locale } from "@/lib/constants";
 import { COUNTRIES, getCountryFlag } from "@/lib/countries";
 import { useSettings } from "@/contexts/settings-context";
 import { cn } from "@/lib/utils";
 
-const LANGUAGE_NAMES: Record<Locale, string> = {
-  en: "English",
-  fr: "Français",
-  es: "Español",
-  "pt-BR": "Português",
-  de: "Deutsch",
-  it: "Italiano",
-  ja: "日本語",
-  ko: "한국어",
-  "zh-CN": "简体中文",
-  "zh-TW": "繁體中文",
-  ar: "العربية",
-};
 
 export function LocalizationMenu() {
   const locale = useLocale() as Locale;
@@ -93,7 +80,7 @@ export function LocalizationMenu() {
             className="absolute left-1/2 -translate-x-1/2 top-full z-50 overflow-hidden"
             style={{
               marginTop: "8px",
-              width: "240px",
+              width: "min(240px, calc(100vw - 32px))",
               background: "rgba(13, 13, 30, 0.96)",
               border: "1px solid rgba(192,132,240,0.2)",
               backdropFilter: "blur(16px)",

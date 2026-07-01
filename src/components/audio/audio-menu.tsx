@@ -112,7 +112,7 @@ export function AudioMenu() {
             className="absolute left-1/2 -translate-x-1/2 top-full z-50 overflow-hidden"
             style={{
               marginTop: "8px",
-              width: "280px",
+              width: "min(280px, calc(100vw - 32px))",
               background: "rgba(13, 13, 30, 0.96)",
               border: "1px solid rgba(192,132,240,0.2)",
               backdropFilter: "blur(16px)",

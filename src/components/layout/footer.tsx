@@ -11,13 +11,14 @@ export function Footer() {
     <footer
       className="flex flex-col items-center"
       style={{
-        padding: "20px 32px",
+        paddingBlock: "20px",
+          paddingInline: "clamp(16px, 4vw, 32px)",
         background: "linear-gradient(to top, rgba(6,6,16,0.8) 0%, transparent 100%)",
         borderTop: "1px solid rgba(192, 132, 240, 0.12)",
         gap: "10px",
       }}
     >
-      <div className="flex items-center" style={{ gap: "24px" }}>
+      <div className="flex flex-wrap items-center justify-center" style={{ gap: "24px" }}>
         <Link
           href="/privacy"
           style={{

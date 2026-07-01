@@ -9,3 +9,17 @@ export const LOCALES = ["en", "fr", "es", "pt-BR", "de", "it", "ja", "ko", "zh-C
 export const DEFAULT_LOCALE = "en";
 
 export type Locale = (typeof LOCALES)[number];
+
+export const LANGUAGE_NAMES: Record<Locale, string> = {
+  en: "English",
+  fr: "Français",
+  es: "Español",
+  "pt-BR": "Português (Brasil)",
+  de: "Deutsch",
+  it: "Italiano",
+  ja: "日本語",
+  ko: "한국어",
+  "zh-CN": "简体中文",
+  "zh-TW": "繁體中文",
+  ar: "العربية",
+};

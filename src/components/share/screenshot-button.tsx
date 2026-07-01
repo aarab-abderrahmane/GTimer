@@ -134,7 +134,7 @@ export function ScreenshotButton({ data }: ScreenshotButtonProps) {
         }}
       >
         <Camera className={`h-4 w-4 ${loading ? "animate-pulse" : ""}`} />
-        <span className="hidden group-hover:inline">{t("screenshot")}</span>
+        <span className="hidden sm:group-hover:inline">{t("screenshot")}</span>
       </button>
 
       {showModal && imageUrl && typeof document !== "undefined" && createPortal(
@@ -211,7 +211,7 @@ export function ScreenshotButton({ data }: ScreenshotButtonProps) {
                 src={imageUrl}
                 alt="GTimer Countdown"
                 style={{
-                  width: "60%",
+                  width: "clamp(180px, 50vw, 60%)",
                   borderRadius: "0px",
                   display: "block",
                 }}

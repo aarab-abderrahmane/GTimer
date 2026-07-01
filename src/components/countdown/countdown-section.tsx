@@ -81,7 +81,7 @@ export function CountdownSection({
       {/* ── Main content ── */}
       <div
         className="relative z-10 flex flex-col items-center px-6 text-center"
-        style={{ paddingTop: "80px", paddingBottom: "48px", width: "100%" }}
+        style={{ paddingTop: "clamp(56px, 10vw, 80px)", paddingBottom: "clamp(32px, 6vw, 48px)", width: "100%" }}
       >
         {/* Eyebrow label — gold, tracked */}
           <p
@@ -150,7 +150,7 @@ export function CountdownSection({
             "mb-6 transition-all duration-700",
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
-          style={{ transitionDelay: "300ms", width: "100%", maxWidth: "400px" }}
+          style={{ transitionDelay: "300ms", width: "100%", maxWidth: "clamp(280px, 50vw, 400px)" }}
         >
           <VILoader />
         </div>

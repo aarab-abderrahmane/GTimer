@@ -45,7 +45,7 @@ export function VILoader() {
       style={{
         position: "relative",
         aspectRatio: "240 / 176.85",
-        maxWidth: "400px",
+        maxWidth: "clamp(280px, 50vw, 400px)",
         margin: "0 auto",
       }}
     >
