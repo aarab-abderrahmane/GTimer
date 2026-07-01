@@ -61,10 +61,10 @@ export function CountdownSection({
     <section
       ref={sectionRef}
       style={{ background: "transparent" }}
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-4"
     >
       {/* ── Background ── */}
-      <BackgroundVideo src="/videos/background.mp4" poster="/images/background.jpg" />
+      <BackgroundVideo src="https://github.com/aabderahman190-oss/gtimer_video/releases/download/v1.0/0701.mp4" poster="/images/background.jpg" />
       <BackgroundOverlay />
 
       {/* ── Ambient hue animation layer ── */}
@@ -179,19 +179,19 @@ export function CountdownSection({
           <div
             className="flex items-center gap-2"
             style={{
-              background: "rgba(48, 46, 16, 0.21)",
+              background: "rgba(0, 0, 0, 0.2)",
               borderRadius: "50px",
               padding: "6px 16px",
               backdropFilter: "blur(8px)",
             }}
           >
-            <span style={{ fontSize: "14px", lineHeight: 1 }}>
+            <span style={{ fontSize: "16px", lineHeight: 1 }}>
               {country.flag}
             </span>
             <span
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "11px",
+                fontSize: "12px",
                 fontWeight: 600,
                 color: "#E0E0FF",
               }}
@@ -201,7 +201,7 @@ export function CountdownSection({
             <span
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "10px",
+                fontSize: "11px",
                 fontWeight: 400,
                 color: "#9999BB",
               }}

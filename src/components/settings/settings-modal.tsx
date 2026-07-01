@@ -1109,16 +1109,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                     >
                       GTimer v1.0 · gtimer.app
                     </div>
-                    <div
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontSize: "11px",
-                        color: C.muted,
-                        marginTop: "2px",
-                      }}
-                    >
-                      GTA VI launches November 19, 2026
-                    </div>
+             
                   </div>
                 </div>
               </div>
