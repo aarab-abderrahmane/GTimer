@@ -64,7 +64,7 @@ export function CountdownSection({
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden"
     >
       {/* ── Background ── */}
-      <BackgroundVideo src="/videos/background.mp4" />
+      <BackgroundVideo src="/videos/background.mp4" poster="/images/background.jpg" />
       <BackgroundOverlay />
 
       {/* ── Ambient hue animation layer ── */}

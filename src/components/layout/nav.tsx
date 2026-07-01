@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -274,9 +275,11 @@ export function SlideoutNav({ isOpen, onClose }: SlideoutNavProps) {
             >
               {/* Logo + title */}
               <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-                <img
+                <Image
                   src="/icons/icon-192x192.png"
                   alt="GTimer"
+                  width={192}
+                  height={192}
                   style={{
                     width: "36px",
                     height: "36px",
