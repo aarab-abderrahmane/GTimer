@@ -59,14 +59,14 @@ export function Nav() {
         {/* Center Controls — hidden on mobile */}
         <div
           className="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-2"
-          style={{ zIndex: 10 }}
+          style={{ zIndex: 10, direction: "ltr" }}
         >
           <LocalizationMenu />
           <AudioMenu />
         </div>
 
         {/* Desktop Nav links — hidden on mobile */}
-        <div className="hidden sm:flex items-center" style={{ gap: "32px", position: "relative", zIndex: 10 }}>
+        <div className="hidden sm:flex items-center" style={{ gap: "32px", position: "relative", zIndex: 10, direction: "ltr" }}>
           {links.map(({ href, label }) => {
             const isActive =
               href === ""
@@ -107,7 +107,7 @@ export function Nav() {
         </div>
 
         {/* Mobile buttons — visible only on mobile */}
-        <div className="flex sm:hidden items-center gap-2">
+        <div className="flex sm:hidden items-center gap-2" style={{ direction: "ltr" }}>
           <button
             onClick={() => setIsSettingsOpen(true)}
             className="flex items-center justify-center rounded-full transition-all duration-300"

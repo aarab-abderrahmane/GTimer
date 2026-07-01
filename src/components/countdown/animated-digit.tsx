@@ -15,7 +15,7 @@ export function AnimatedDigit({ value, label, digits = 2 }: AnimatedDigitProps) 
 
   return (
     <div className="flex flex-col items-center" style={{ gap: "10px" }}>
-      <div style={{ display: "flex", gap: "3px" }}>
+      <div style={{ display: "flex", gap: "3px", direction: "ltr" }}>
         {chars.map((char, i) => (
           <div
             key={`${i}-slot`}

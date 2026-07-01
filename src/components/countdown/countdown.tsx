@@ -134,7 +134,7 @@ export function Countdown({ time }: { time: CountdownTime }) {
   return (
     <div
       className="flex flex-wrap items-end justify-center"
-      style={{ gap: "clamp(8px, 2vw, 20px)" }}
+      style={{ gap: "clamp(8px, 2vw, 20px)", direction: "ltr" }}
     >
       <AnimatedDigit value={time.days}    label={t("days")} />
       <AnimatedDigit value={time.hours}   label={t("hours")} />
