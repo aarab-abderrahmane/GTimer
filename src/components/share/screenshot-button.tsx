@@ -139,242 +139,377 @@ export function ScreenshotButton({ data }: ScreenshotButtonProps) {
       </button>
 
       {showModal && imageUrl && typeof document !== "undefined" && createPortal(
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ background: "rgba(6, 6, 16, 0.75)", backdropFilter: "blur(10px)" }}
-          onClick={handleClose}
-        >
+        <AnimatePresence>
           <motion.div
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50"
+            style={{
+              background: "rgba(4,4,12,0.72)",
+              backdropFilter: "blur(6px)",
+              WebkitBackdropFilter: "blur(6px)",
+            }}
+            onClick={handleClose}
+          />
+          <motion.div
+            key="modal"
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col overflow-hidden"
-            style={{
-              maxWidth: "520px",
-              width: "100%",
-              maxHeight: "90vh" , 
-              background: "rgba(26, 16, 48, 0.95)",
-              border: "1px solid rgba(192,132,240,0.2)",
-              backdropFilter: "blur(16px)",
-              borderRadius: "0px",
-            }}
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={{ pointerEvents: "none" }}
           >
-            {/* Header */}
             <div
-              className="flex items-center justify-between"
-              style={{ padding: "24px 28px 20px", borderBottom: "1px solid rgba(192,132,240,0.12)" }}
+              className="flex flex-col overflow-hidden"
+              style={{
+                width: "100%",
+                maxWidth: "520px",
+                maxHeight: "90vh",
+                background: "#130c28",
+                borderRadius: "20px",
+                border: "1px solid rgba(192,132,240,0.13)",
+                pointerEvents: "all",
+                position: "relative",
+              }}
+              onClick={(e) => e.stopPropagation()}
             >
-              <span
+              {/* Ambient glow */}
+              <div
                 style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "22px",
-                  fontWeight: 800,
-                  color: "#FFD700",
-                  letterSpacing: "0.03em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {t("screenshot")}
-              </span>
-              <button
-                onClick={handleClose}
-                className="flex items-center justify-center transition-all duration-300"
-                style={{
-                  background: "rgba(192,132,240,0.08)",
-                  border: "none",
-                  cursor: "pointer",
-                  color: "#9999BB",
-                  borderRadius: "9999px",
-                  padding: "8px",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "rgba(192,132,240,0.18)";
-                  (e.currentTarget as HTMLElement).style.color = "#FFFFFF";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "rgba(192,132,240,0.08)";
-                  (e.currentTarget as HTMLElement).style.color = "#9999BB";
-                }}
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-
-            {/* Image */}
-            <div style={{ padding: "0 28px" , display:"flex" , justifyContent:"center"  , width: "100%"}}>
-              <img
-                src={imageUrl}
-                alt="GTimer Countdown"
-                style={{
-                  width: "clamp(180px, 50vw, 60%)",
-                  borderRadius: "0px",
-                  display: "block",
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: "180px",
+                  background: "radial-gradient(ellipse 80% 100% at 50% -20%, rgba(139,63,204,0.22) 0%, transparent 70%)",
+                  pointerEvents: "none",
                 }}
               />
-            </div>
 
-            {/* Share buttons */}
-            <div
-              className="flex flex-col gap-2"
-              style={{ padding: "20px 28px 24px", borderTop: "1px solid rgba(192,132,240,0.12)" }}
-            >
-              {/* Row 1: Download + Native Share */}
-              <div className="flex gap-2">
+              {/* Header */}
+              <div
+                className="flex items-center justify-between"
+                style={{
+                  padding: "14px 22px 13px",
+                  borderBottom: "1px solid rgba(192,132,240,0.13)",
+                  position: "relative",
+                  zIndex: 1,
+                }}
+              >
+                <div>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "20px",
+                      fontWeight: 800,
+                      letterSpacing: "0.04em",
+                      textTransform: "uppercase",
+                      color: "#FFFFFF",
+                      lineHeight: 1,
+                    }}
+                  >
+                    {t("shareImage")}
+                  </span>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: "12px",
+                      color: "#9999BB",
+                      marginTop: "4px",
+                    }}
+                  >
+                    {t("createCard")}
+                  </div>
+                </div>
                 <button
-                  onClick={handleDownload}
-                  className="flex items-center justify-center gap-2 flex-1 rounded-xl py-2.5 transition-all duration-300"
+                  onClick={handleClose}
+                  className="flex items-center justify-center"
                   style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "12px",
-                    fontWeight: 600,
-                    letterSpacing: "0.05em",
-                    textTransform: "uppercase",
-                    color: "#C084F0",
-                    background: "rgba(192,132,240,0.12)",
-                    border: "1px solid rgba(192,132,240,0.3)",
+                    width: "34px",
+                    height: "34px",
+                    borderRadius: "50%",
+                    background: "rgba(192,132,240,0.09)",
+                    border: "1px solid rgba(192,132,240,0.16)",
                     cursor: "pointer",
+                    color: "#9999BB",
+                    transition: "all 200ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    flexShrink: 0,
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "rgba(192,132,240,0.25)";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(192,132,240,0.5)";
+                    (e.currentTarget as HTMLElement).style.background = "rgba(192,132,240,0.18)";
+                    (e.currentTarget as HTMLElement).style.color = "#FFFFFF";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "rgba(192,132,240,0.12)";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(192,132,240,0.3)";
+                    (e.currentTarget as HTMLElement).style.background = "rgba(192,132,240,0.09)";
+                    (e.currentTarget as HTMLElement).style.color = "#9999BB";
+                  }}
+                >
+                  <X style={{ width: "15px", height: "15px" }} />
+                </button>
+              </div>
+
+              {/* Body */}
+              <div style={{ flex: 1, overflowY: "auto", padding: "0 22px 28px" }}>
+                {/* Section: Preview */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    marginTop: "28px",
+                    marginBottom: "14px",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "11px",
+                      fontWeight: 700,
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      color: "#FFD700",
+                    }}
+                  >
+                    Preview
+                  </span>
+                  <span
+                    style={{
+                      flex: 1,
+                      height: "1px",
+                      background: "linear-gradient(90deg, rgba(255,215,0,0.22) 0%, transparent 100%)",
+                    }}
+                  />
+                </div>
+
+                {/* Image preview frame with gold corner brackets */}
+                <div
+                  style={{
+                    background: "rgba(13,8,30,0.75)",
+                    borderRadius: "12px",
+                    border: "1px solid rgba(192,132,240,0.13)",
+                    position: "relative",
+                    display: "flex",
+                    boxShadow: "0 4px 24px rgba(0,0,0,0.4)",
+                    lineHeight: 0,
+                  }}
+                >
+                  {/* Gold corner brackets */}
+                  <span style={{ position: "absolute", top: "-1px", left: "-1px", width: "16px", height: "16px", borderTop: "2px solid #FFD700", borderLeft: "2px solid #FFD700", borderTopLeftRadius: "12px" }} />
+                  <span style={{ position: "absolute", top: "-1px", right: "-1px", width: "16px", height: "16px", borderTop: "2px solid #FFD700", borderRight: "2px solid #FFD700", borderTopRightRadius: "12px" }} />
+                  <span style={{ position: "absolute", bottom: "-1px", left: "-1px", width: "16px", height: "16px", borderBottom: "2px solid #FFD700", borderLeft: "2px solid #FFD700", borderBottomLeftRadius: "12px" }} />
+                  <span style={{ position: "absolute", bottom: "-1px", right: "-1px", width: "16px", height: "16px", borderBottom: "2px solid #FFD700", borderRight: "2px solid #FFD700", borderBottomRightRadius: "12px" }} />
+
+                  <img
+                    src={imageUrl}
+                    alt="GTimer Countdown"
+                    style={{
+                      width: "100%",
+                      display: "block",
+                      borderRadius: "12px",
+                    }}
+                  />
+                </div>
+
+                {/* Section: Share */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    marginTop: "28px",
+                    marginBottom: "14px",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "11px",
+                      fontWeight: 700,
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      color: "#FFD700",
+                    }}
+                  >
+                    Share
+                  </span>
+                  <span
+                    style={{
+                      flex: 1,
+                      height: "1px",
+                      background: "linear-gradient(90deg, rgba(255,215,0,0.22) 0%, transparent 100%)",
+                    }}
+                  />
+                </div>
+
+                {/* Download — Primary CTA */}
+                <button
+                  onClick={handleDownload}
+                  className="flex items-center justify-center gap-2 w-full py-3"
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "13px",
+                    fontWeight: 700,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    color: "#FFD700",
+                    background: "rgba(13,8,30,0.75)",
+                    border: "1px solid rgba(192,132,240,0.13)",
+                    borderRadius: "9999px",
+                    cursor: "pointer",
+                    transition: "all 220ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    boxShadow: "0 0 24px rgba(139,63,204,0.15)",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(192,132,240,0.30)";
+                    (e.currentTarget as HTMLElement).style.boxShadow = "0 0 32px rgba(139,63,204,0.30)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(192,132,240,0.13)";
+                    (e.currentTarget as HTMLElement).style.boxShadow = "0 0 24px rgba(139,63,204,0.15)";
                   }}
                 >
                   <Download className="h-4 w-4" />
                   {t("download")}
                 </button>
-                {typeof navigator.share === "function" && (
+
+                {/* Platform row */}
+                <div className="flex justify-center gap-2 sm:gap-1.5" style={{ marginTop: "12px" }}>
                   <button
-                    onClick={handleShareNative}
-                    className="flex items-center justify-center gap-2 flex-1 rounded-xl py-2.5 transition-all duration-300"
+                    onClick={handleShareWhatsApp}
+                    className="flex items-center justify-center w-11 h-11 sm:w-auto sm:h-auto sm:flex-1 rounded-full sm:py-2.5 sm:gap-1.5"
                     style={{
                       fontFamily: "var(--font-body)",
                       fontSize: "12px",
                       fontWeight: 600,
                       letterSpacing: "0.05em",
                       textTransform: "uppercase",
-                      color: "#E0E0FF",
-                      background: "rgba(192,132,240,0.15)",
-                      border: "1px solid rgba(192,132,240,0.3)",
+                      color: "#25D366",
+                      background: "rgba(37,211,102,0.12)",
+                      border: "1px solid rgba(37,211,102,0.25)",
                       cursor: "pointer",
+                      transition: "all 220ms cubic-bezier(0.22, 1, 0.36, 1)",
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.background = "rgba(192,132,240,0.25)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(37,211,102,0.5)";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.background = "rgba(192,132,240,0.15)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(37,211,102,0.25)";
+                    }}
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    <span className="hidden sm:inline">WhatsApp</span>
+                  </button>
+                  <button
+                    onClick={handleShareFacebook}
+                    className="flex items-center justify-center w-11 h-11 sm:w-auto sm:h-auto sm:flex-1 rounded-full sm:py-2.5 sm:gap-1.5"
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      letterSpacing: "0.05em",
+                      textTransform: "uppercase",
+                      color: "#1877F2",
+                      background: "rgba(24,119,242,0.12)",
+                      border: "1px solid rgba(24,119,242,0.25)",
+                      cursor: "pointer",
+                      transition: "all 220ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(24,119,242,0.5)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(24,119,242,0.25)";
+                    }}
+                  >
+                    <ThumbsUp className="h-4 w-4" />
+                    <span className="hidden sm:inline">Facebook</span>
+                  </button>
+                  <button
+                    onClick={handleShareInstagram}
+                    className="flex items-center justify-center w-11 h-11 sm:w-auto sm:h-auto sm:flex-1 rounded-full sm:py-2.5 sm:gap-1.5"
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      letterSpacing: "0.05em",
+                      textTransform: "uppercase",
+                      color: "#DD2A7B",
+                      background: "rgba(221,42,123,0.12)",
+                      border: "1px solid rgba(221,42,123,0.25)",
+                      cursor: "pointer",
+                      transition: "all 220ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(221,42,123,0.5)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(221,42,123,0.25)";
+                    }}
+                  >
+                    <Camera className="h-4 w-4" />
+                    <span className="hidden sm:inline">Instagram</span>
+                  </button>
+                </div>
+
+                {/* Native Share */}
+                {typeof navigator.share === "function" && (
+                  <button
+                    onClick={handleShareNative}
+                    className="flex items-center justify-center gap-2 w-full rounded-full py-2.5"
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      letterSpacing: "0.05em",
+                      textTransform: "uppercase",
+                      color: "#C084F0",
+                      background: "rgba(13,8,30,0.75)",
+                      border: "1px solid rgba(192,132,240,0.13)",
+                      cursor: "pointer",
+                      marginTop: "12px",
+                      transition: "all 220ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.background = "rgba(192,132,240,0.12)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(192,132,240,0.30)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.background = "rgba(13,8,30,0.75)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(192,132,240,0.13)";
                     }}
                   >
                     <Share2 className="h-4 w-4" />
                     {t("shareButton")}
                   </button>
                 )}
-              </div>
 
-              {/* Row 2: WhatsApp + Facebook + Instagram */}
-              <div className="flex gap-2">
-                <button
-                  onClick={handleShareWhatsApp}
-                  className="flex items-center justify-center gap-1.5 flex-1 rounded-xl py-2.5 transition-all duration-300"
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "12px",
-                    fontWeight: 600,
-                    color: "#25D366",
-                    background: "rgba(37,211,102,0.12)",
-                    border: "1px solid rgba(37,211,102,0.3)",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "rgba(37,211,102,0.25)";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(37,211,102,0.5)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "rgba(37,211,102,0.12)";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(37,211,102,0.3)";
-                  }}
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  WhatsApp
-                </button>
-                <button
-                  onClick={handleShareFacebook}
-                  className="flex items-center justify-center gap-1.5 flex-1 rounded-xl py-2.5 transition-all duration-300"
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "12px",
-                    fontWeight: 600,
-                    color: "#1877F2",
-                    background: "rgba(24,119,242,0.12)",
-                    border: "1px solid rgba(24,119,242,0.3)",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "rgba(24,119,242,0.25)";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(24,119,242,0.5)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "rgba(24,119,242,0.12)";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(24,119,242,0.3)";
-                  }}
-                >
-                  <ThumbsUp className="h-4 w-4" />
-                  Facebook
-                </button>
-                <button
-                  onClick={handleShareInstagram}
-                  className="flex items-center justify-center gap-1.5 flex-1 rounded-xl py-2.5 transition-all duration-300"
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "12px",
-                    fontWeight: 600,
-                    color: "#DD2A7B",
-                    background: "rgba(221,42,123,0.12)",
-                    border: "1px solid rgba(221,42,123,0.3)",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "rgba(221,42,123,0.25)";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(221,42,123,0.5)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "rgba(221,42,123,0.12)";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(221,42,123,0.3)";
-                  }}
-                >
-                  <Camera className="h-4 w-4" />
-                  Instagram
-                </button>
+                {/* Copied toast */}
+                {copied && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "var(--font-body)",
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      color: "#FFD700",
+                      padding: "10px 0 0",
+                    }}
+                  >
+                    {t("copiedImage")}
+                  </motion.div>
+                )}
               </div>
-
-              {/* Copied toast */}
-              {copied && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  style={{
-                    textAlign: "center",
-                    fontFamily: "var(--font-body)",
-                    fontSize: "11px",
-                    color: "#00D4AA",
-                    padding: "4px 0",
-                  }}
-                >
-                  {t("copiedImage")}
-                </motion.div>
-              )}
             </div>
           </motion.div>
-        </motion.div>,
+        </AnimatePresence>,
         document.body,
       )}
     </>
