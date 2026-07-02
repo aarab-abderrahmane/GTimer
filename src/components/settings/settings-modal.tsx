@@ -290,6 +290,7 @@ function CountrySelector({
   settings: { country: string; timezone?: string };
   updateSettings: (p: { country: string; timezone: string }) => void;
 }) {
+  const t = useTranslations("settings");
   const [open,  setOpen]  = useState(false);
   const [query, setQuery] = useState("");
   const ref = useRef<HTMLDivElement>(null);
@@ -392,7 +393,7 @@ function CountrySelector({
               <input
                 autoFocus
                 type="text"
-                placeholder="Search…"
+                placeholder={t("searchCountries")}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 style={{
@@ -420,7 +421,7 @@ function CountrySelector({
                     textAlign: "center",
                   }}
                 >
-                  No results
+                  {t("noResults")}
                 </div>
               ) : (
                 filtered.map((country) => {
@@ -628,6 +629,7 @@ function MusicCard({
   volume: number;
   setVolume: (v: number) => void;
 }) {
+  const t = useTranslations("settings");
   return (
     <div
       style={{
@@ -687,7 +689,7 @@ function MusicCard({
               marginBottom: "3px",
             }}
           >
-            {isPlaying ? "Now playing" : "Select track"}
+            {t(isPlaying ? "nowPlaying" : "selectTrack")}
           </div>
           <select
             value={currentTrack.id}
@@ -821,6 +823,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
   const locale   = useLocale() as Locale;
   const router   = useRouter();
   const pathname = usePathname();
+  const t = useTranslations("settings");
 
   // decorative / coming-soon state
   const [motionEnabled, setMotionEnabled] = useState(true);
@@ -959,7 +962,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                       lineHeight: 1,
                     }}
                   >
-                    Settings
+                    {t("title")}
                   </div>
                   <div
                     style={{
@@ -969,12 +972,12 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                       marginTop: "4px",
                     }}
                   >
-                    Customize your GTimer experience
+                    {t("subtitle")}
                   </div>
                 </div>
                 <button
                   onClick={onClose}
-                  aria-label="Close settings"
+                  aria-label={t("closeModal")}
                   style={{
                     width: "34px",
                     height: "34px",
@@ -1015,42 +1018,42 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                 }}
               >
                 {/* ── DISPLAY ──────────────────────────── */}
-                <SectionTitle>Display</SectionTitle>
+                <SectionTitle>{t("display")}</SectionTitle>
 
                 <ComingSoonOverlay>
                   <Row>
-                    <RowLeft icon={Palette} label="Theme" sub="Appearance" />
+                    <RowLeft icon={Palette} label={t("theme")} sub={t("appearance")} />
                     <Segment options={["Dark", "Light"]} value={theme} onChange={setTheme} />
                   </Row>
                 </ComingSoonOverlay>
 
                 <ComingSoonOverlay>
                   <Row>
-                    <RowLeft icon={ZapIcon} label="Motion & animations" sub="Reduce to save battery" />
+                    <RowLeft icon={ZapIcon} label={t("motion")} sub={t("reduceBattery")} />
                     <Toggle value={motionEnabled} onChange={setMotionEnabled} />
                   </Row>
                 </ComingSoonOverlay>
 
                 {/* ── COUNTDOWN ────────────────────────── */}
-                <SectionTitle>Countdown</SectionTitle>
+                <SectionTitle>{t("countdown")}</SectionTitle>
 
                 <ComingSoonOverlay>
                   <Row>
-                    <RowLeft icon={Clock} label="Time format" sub="Hours display" />
+                    <RowLeft icon={Clock} label={t("timeFormat")} sub={t("hoursDisplay")} />
                     <Segment options={["12h", "24h"]} value={timeFormat} onChange={setTimeFormat} />
                   </Row>
                 </ComingSoonOverlay>
 
                 <Row>
-                  <RowLeft icon={MapPin} label="Country" sub="Timezone reference" />
+                  <RowLeft icon={MapPin} label={t("country")} sub={t("timezoneRef")} />
                   <CountrySelector settings={settings} updateSettings={updateSettings} />
                 </Row>
 
                 {/* ── SOUND & ALERTS ───────────────────── */}
-                <SectionTitle>Sound & alerts</SectionTitle>
+                <SectionTitle>{t("soundAlerts")}</SectionTitle>
 
                 <Row>
-                  <RowLeft icon={Volume2} label="Sound effects" sub="Ambient countdown audio" />
+                  <RowLeft icon={Volume2} label={t("sound")} sub={t("ambientAudio")} />
                   <Toggle
                     value={settings.soundEnabled}
                     onChange={(v) => updateSettings({ soundEnabled: v })}
@@ -1059,21 +1062,21 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
 
                 <ComingSoonOverlay>
                   <Row>
-                    <RowLeft icon={Bell} label="Release notifications" sub="Remind me on launch day" />
+                    <RowLeft icon={Bell} label={t("releaseNotifs")} sub={t("remindLaunch")} />
                     <Toggle value={notifyEnabled} onChange={setNotifyEnabled} />
                   </Row>
                 </ComingSoonOverlay>
 
                 {/* ── LANGUAGE ─────────────────────────── */}
-                <SectionTitle>Language</SectionTitle>
+                <SectionTitle>{t("language")}</SectionTitle>
 
                 <Row>
-                  <RowLeft icon={Globe} label="Language" sub="Interface language" />
+                  <RowLeft icon={Globe} label={t("language")} sub={t("interfaceLang")} />
                   <LanguageSelector locale={locale} onChange={handleLocaleChange} />
                 </Row>
 
                 {/* ── MUSIC ────────────────────────────── */}
-                <SectionTitle>Music</SectionTitle>
+                <SectionTitle>{t("music")}</SectionTitle>
 
                 <MusicCard
                   isPlaying={isPlaying}
@@ -1107,7 +1110,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                         fontWeight: 500,
                       }}
                     >
-                      GTimer v1.0 · gtimer.app
+                      {t("version")}
                     </div>
              
                   </div>

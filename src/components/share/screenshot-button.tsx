@@ -274,7 +274,7 @@ export function ScreenshotButton({ data }: ScreenshotButtonProps) {
                       color: "#FFD700",
                     }}
                   >
-                    Preview
+                    {t("preview")}
                   </span>
                   <span
                     style={{
@@ -334,7 +334,7 @@ export function ScreenshotButton({ data }: ScreenshotButtonProps) {
                       color: "#FFD700",
                     }}
                   >
-                    Share
+                    {t("shareSection")}
                   </span>
                   <span
                     style={{
@@ -377,7 +377,7 @@ export function ScreenshotButton({ data }: ScreenshotButtonProps) {
                 </button>
 
                 {/* Platform row */}
-                <div className="flex justify-center gap-2 sm:gap-1.5" style={{ marginTop: "12px" }}>
+                <div className="flex justify-center gap-2 sm:gap-1.5 [direction:ltr] text-left" style={{ marginTop: "12px" }}>
                   <button
                     onClick={handleShareWhatsApp}
                     className="flex items-center justify-center w-11 h-11 sm:w-auto sm:h-auto sm:flex-1 rounded-full sm:py-2.5 sm:gap-1.5"
