@@ -39,7 +39,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   return (
     <ToastContext.Provider value={{ show }}>
       {children}
-      <div className="fixed bottom-[var(--spacing-xl)] left-1/2 z-50 flex -translate-x-1/2 flex-col items-center gap-[var(--spacing-sm)] max-sm:bottom-[var(--spacing-md)]">
+      <div className="fixed bottom-[var(--spacing-xl)] left-1/2 z-50 flex -translate-x-1/2 flex-col items-center gap-[var(--spacing-sm)] max-sm:bottom-[var(--spacing-md)] mx-4 max-sm:max-w-[90vw] sm:max-w-sm">
         <AnimatePresence>
           {toasts.map((toast) => (
             <motion.div
@@ -58,12 +58,12 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               {toast.type === "success" && <CheckCircle className="h-4 w-4 shrink-0" />}
               {toast.type === "error" && <AlertCircle className="h-4 w-4 shrink-0" />}
               {toast.type === "info" && <Info className="h-4 w-4 shrink-0" />}
-              <span className="font-[family-name:var(--font-body)] text-[var(--text-body)]">
+              <span className="break-words font-[family-name:var(--font-body)] text-[var(--text-body)]">
                 {toast.message}
               </span>
               <button
                 onClick={() => remove(toast.id)}
-                className="ms-[var(--spacing-sm)] shrink-0 rounded-full p-[2px] opacity-60 transition-opacity hover:opacity-100"
+                className="ms-[var(--spacing-sm)] shrink-0 rounded-full p-[2px] opacity-60 transition-opacity hover:opacity-100 max-sm:p-2 max-sm:[&_svg]:h-4 max-sm:[&_svg]:w-4"
               >
                 <X className="h-3 w-3" />
               </button>

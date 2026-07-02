@@ -19,6 +19,7 @@ export function CopyLink() {
   return (
     <button
       onClick={handleCopy}
+      aria-label={copied ? t("copied") : t("copyLink")}
       className="group flex items-center gap-2 transition-all px-3  rounded-full  duration-300"
       style={{
         fontFamily: "var(--font-body)",

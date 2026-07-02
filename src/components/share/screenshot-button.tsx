@@ -111,6 +111,7 @@ export function ScreenshotButton({ data }: ScreenshotButtonProps) {
       <button
         onClick={handleCapture}
         disabled={loading}
+        aria-label={t("screenshot")}
         className="group flex items-center gap-2 transition-all px-3  duration-300"
         style={{
           fontFamily: "var(--font-body)",
