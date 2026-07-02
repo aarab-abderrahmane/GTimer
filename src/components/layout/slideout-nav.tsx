@@ -100,6 +100,7 @@ export function SlideoutNav({ isOpen, onClose }: SlideoutNavProps) {
             <div className="flex items-center gap-[var(--spacing-lg)] px-[var(--spacing-page-edge)] pb-[var(--spacing-xl)]">
               <button
                 onClick={toggle}
+                aria-label={isPlaying ? "Pause music" : "Play music"}
                 className={cn(
                   "rounded-[var(--radius-pill)] px-[var(--spacing-lg)] py-[var(--spacing-sm)] text-xs uppercase tracking-[0.15em] transition-colors",
                   isPlaying

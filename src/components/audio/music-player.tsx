@@ -44,6 +44,7 @@ export function MusicPlayer() {
       {/* Track selector pill */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label="Select track"
         className="flex items-center gap-1 rounded-full px-3 py-1.5 transition-all duration-300 backdrop-blur-md"
         style={{
           fontFamily: "var(--font-body)",
@@ -104,6 +105,7 @@ export function MusicPlayer() {
                   selectTrack(track);
                   setIsOpen(false);
                 }}
+                aria-label={track.title}
                 className="flex w-full items-center gap-3 text-start transition-all duration-200"
                 style={{
                   padding: "10px 16px",

@@ -139,6 +139,7 @@ export function AudioMenu() {
               </span>
               <button
                 onClick={() => updateSettings({ soundEnabled: !settings.soundEnabled })}
+                aria-label={settings.soundEnabled ? "Disable sound effects" : "Enable sound effects"}
                 className="relative transition-all duration-300"
                 style={{
                   width: "36px",
@@ -173,6 +174,7 @@ export function AudioMenu() {
                   onClick={() => {
                     selectTrack(track);
                   }}
+                  aria-label={track.title}
                   className="flex w-full items-center gap-3 text-start transition-all duration-200"
                   style={{
                     padding: "10px 16px",

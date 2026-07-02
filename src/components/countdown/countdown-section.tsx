@@ -64,7 +64,7 @@ export function CountdownSection({
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-4"
     >
       {/* ── Background ── */}
-      <BackgroundVideo src="https://github.com/aabderahman190-oss/gtimer_video/releases/download/v1.0/0701.mp4" poster="/images/background.jpg" />
+      <BackgroundVideo src="https://github.com/aabderahman190-oss/gtimer_video/releases/download/v1.0/0701.mp4" poster="/images/background.webp" />
       <BackgroundOverlay />
 
       {/* ── Ambient hue animation layer ── */}
@@ -178,6 +178,7 @@ export function CountdownSection({
 
           <div
             className="flex items-center gap-2"
+            suppressHydrationWarning
             style={{
               background: "rgba(0, 0, 0, 0.2)",
               borderRadius: "50px",
@@ -185,7 +186,7 @@ export function CountdownSection({
               backdropFilter: "blur(8px)",
             }}
           >
-            <span style={{ fontSize: "16px", lineHeight: 1 }}>
+            <span suppressHydrationWarning style={{ fontSize: "16px", lineHeight: 1 }}>
               {country.flag}
             </span>
             <span
