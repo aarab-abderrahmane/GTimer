@@ -72,7 +72,7 @@ export default async function LocaleLayout({
       <head>
         <link rel="icon" href="/icons/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-        <meta name="google-site-verification" content="nfcKw_z2bYQFUmqTLlQOvijAGFzmo1WCwlUQ2BG9BNU" />
+        <meta name="google-site-verification" content="z9LbqnBkjyC57ROYgndrX5bduTaPKU9NPiwJXJsb29A" />
       </head>
       <body className="min-h-full antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
