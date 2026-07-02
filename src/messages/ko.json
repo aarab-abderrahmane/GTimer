@@ -58,7 +58,9 @@
     "version": "GTimer v1.0 · gtimer.app",
     "closeModal": "설정 닫기",
     "appearanceDark": "어두움",
-    "appearanceLight": "밝음"
+    "appearanceLight": "밝음",
+    "loopOne": "한 곡 반복",
+    "loopAll": "전체 반복"
   },
   "share": {
     "title": "GTimer 공유하기",

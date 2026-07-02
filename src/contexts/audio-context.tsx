@@ -21,6 +21,8 @@ interface AudioContextValue {
   toggle: () => void;
   selectTrack: (track: Track) => void;
   setVolume: (v: number) => void;
+  loopMode: "one" | "all";
+  setLoopMode: (mode: "one" | "all") => void;
 }
 
 const AudioCtx = createContext<AudioContextValue | null>(null);
@@ -32,6 +34,15 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const { show } = useToast();
 
+  const currentTrackRef = useRef(currentTrack);
+  currentTrackRef.current = currentTrack;
+
+  const loopModeRef = useRef(settings.loopMode);
+  loopModeRef.current = settings.loopMode;
+
+  const isPlayingRef = useRef(isPlaying);
+  isPlayingRef.current = isPlaying;
+
   const initAudio = useCallback(
     (track: Track) => {
       if (audioRef.current) {
@@ -40,7 +51,23 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       }
       const audio = new Audio(track.src);
       audio.volume = settings.volume / 100;
-      audio.loop = true;
+
+      audio.addEventListener("ended", () => {
+        if (loopModeRef.current === "one") {
+          audio.play();
+        } else {
+          const tracks = TRACKS;
+          const idx = tracks.findIndex((t) => t.id === currentTrackRef.current.id);
+          const next = tracks[(idx + 1) % tracks.length];
+          setCurrentTrack(next);
+          initAudio(next);
+          if (isPlayingRef.current) {
+            audioRef.current?.play().then(() => setIsPlaying(true)).catch(() => {
+              setIsPlaying(false);
+            });
+          }
+        }
+      });
 
       audio.addEventListener("error", () => {
         show(`Failed to load track: ${track.title}`, "error");
@@ -56,6 +83,17 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       audioRef.current.volume = settings.volume / 100;
     }
   }, [settings.volume]);
+
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+        audioRef.current.load();
+        audioRef.current = null;
+      }
+    };
+  }, []);
 
   const play = useCallback(() => {
     if (!audioRef.current) {
@@ -113,6 +151,13 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     [updateSettings],
   );
 
+  const setLoopMode = useCallback(
+    (mode: "one" | "all") => {
+      updateSettings({ loopMode: mode });
+    },
+    [updateSettings],
+  );
+
   return (
     <AudioCtx.Provider
       value={{
@@ -123,6 +168,8 @@ export function AudioProvider({ children }: { children: ReactNode }) {
         toggle,
         selectTrack,
         setVolume,
+        loopMode: settings.loopMode,
+        setLoopMode,
       }}
     >
       {children}

@@ -18,6 +18,7 @@ export interface Settings {
   musicEnabled: boolean;
   soundEnabled: boolean;
   popupDismissed: boolean;
+  loopMode: "one" | "all";
 }
 
 interface SettingsContextValue {
@@ -33,6 +34,7 @@ const defaultSettings: Settings = {
   musicEnabled: false,
   soundEnabled: true,
   popupDismissed: false,
+  loopMode: "one",
 };
 
 const SettingsContext = createContext<SettingsContextValue | null>(null);

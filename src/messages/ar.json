@@ -58,7 +58,9 @@
     "version": "GTimer v1.0 · gtimer.app",
     "closeModal": "إغلاق الإعدادات",
     "appearanceDark": "داكن",
-    "appearanceLight": "فاتح"
+    "appearanceLight": "فاتح",
+    "loopOne": "تكرار مسار واحد",
+    "loopAll": "تكرار الكل"
   },
   "share": {
     "title": "مشاركة GTimer",

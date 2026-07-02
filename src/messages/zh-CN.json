@@ -58,7 +58,9 @@
     "version": "GTimer v1.0 · gtimer.app",
     "closeModal": "关闭设置",
     "appearanceDark": "深色",
-    "appearanceLight": "浅色"
+    "appearanceLight": "浅色",
+    "loopOne": "单曲循环",
+    "loopAll": "全部循环"
   },
   "share": {
     "title": "分享 GTimer",

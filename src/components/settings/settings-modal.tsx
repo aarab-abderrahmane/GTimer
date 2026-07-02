@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   X, Globe, Clock, Palette, Bell, Volume2, Info,
   Music, Play, Pause, MapPin, ChevronDown, Search, Check,
+  Repeat, Repeat1,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useSettings } from "@/contexts/settings-context";
@@ -621,6 +622,8 @@ function MusicCard({
   selectTrack,
   volume,
   setVolume,
+  loopMode,
+  setLoopMode,
 }: {
   isPlaying: boolean;
   currentTrack: Track;
@@ -628,6 +631,8 @@ function MusicCard({
   selectTrack: (t: Track) => void;
   volume: number;
   setVolume: (v: number) => void;
+  loopMode: "one" | "all";
+  setLoopMode: (m: "one" | "all") => void;
 }) {
   const t = useTranslations("settings");
   return (
@@ -645,7 +650,7 @@ function MusicCard({
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "12px",
+          gap: "10px",
           padding: "12px 14px",
           borderBottom: `1px solid ${C.border}`,
         }}
@@ -674,6 +679,30 @@ function MusicCard({
           {isPlaying
             ? <Pause style={{ width: "14px", height: "14px" }} />
             : <Play  style={{ width: "14px", height: "14px", marginLeft: "1px" }} />}
+        </button>
+
+        {/* Loop toggle */}
+        <button
+          onClick={() => setLoopMode(loopMode === "one" ? "all" : "one")}
+          aria-label={t(loopMode === "one" ? "loopOne" : "loopAll")}
+          style={{
+            width: "30px",
+            height: "30px",
+            borderRadius: "8px",
+            background: loopMode === "all" ? "rgba(192,132,240,0.12)" : "rgba(192,132,240,0.06)",
+            border: `1px solid ${loopMode === "all" ? "rgba(192,132,240,0.30)" : "rgba(192,132,240,0.12)"}`,
+            color: loopMode === "all" ? C.purple : C.muted,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            flexShrink: 0,
+            transition: `all 250ms ${C.ease}`,
+          }}
+        >
+          {loopMode === "one"
+            ? <Repeat1 style={{ width: "13px", height: "13px" }} />
+            : <Repeat  style={{ width: "13px", height: "13px" }} />}
         </button>
 
         {/* Track select — custom dropdown trigger */}
@@ -819,7 +848,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const { settings, updateSettings } = useSettings();
-  const { isPlaying, currentTrack, toggle, selectTrack, setVolume } = useAudio();
+  const { isPlaying, currentTrack, toggle, selectTrack, setVolume, pause, loopMode, setLoopMode } = useAudio();
   const locale   = useLocale() as Locale;
   const router   = useRouter();
   const pathname = usePathname();
@@ -844,6 +873,8 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
   }, [isOpen]);
 
   function handleLocaleChange(newLocale: string) {
+    pause();
+    updateSettings({ language: newLocale as Locale });
     const segments = pathname.split("/").filter(Boolean);
     if (LOCALES.includes(segments[0] as Locale)) {
       segments[0] = newLocale;
@@ -1085,6 +1116,8 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                   selectTrack={selectTrack}
                   volume={settings.volume}
                   setVolume={setVolume}
+                  loopMode={loopMode}
+                  setLoopMode={setLoopMode}
                 />
 
                 {/* ── VERSION ──────────────────────────── */}

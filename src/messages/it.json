@@ -58,7 +58,9 @@
     "version": "GTimer v1.0 · gtimer.app",
     "closeModal": "Chiudi impostazioni",
     "appearanceDark": "Scuro",
-    "appearanceLight": "Chiaro"
+    "appearanceLight": "Chiaro",
+    "loopOne": "Ripeti una traccia",
+    "loopAll": "Ripeti tutto"
   },
   "share": {
     "title": "Condividi GTimer",

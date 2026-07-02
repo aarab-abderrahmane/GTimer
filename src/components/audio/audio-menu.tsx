@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Music, Play, Pause, ChevronDown, Volume2, Volume1, VolumeX } from "lucide-react";
+import { Music, Play, Pause, ChevronDown, Volume2, Volume1, VolumeX, Repeat, Repeat1 } from "lucide-react";
 import { useAudio } from "@/contexts/audio-context";
 import { useSettings } from "@/contexts/settings-context";
 import { TRACKS } from "@/lib/music";
@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 
 export function AudioMenu() {
-  const { isPlaying, currentTrack, toggle, selectTrack, setVolume } = useAudio();
+  const { isPlaying, currentTrack, toggle, selectTrack, setVolume, loopMode, setLoopMode } = useAudio();
   const { settings, updateSettings } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("settings");
@@ -42,7 +42,7 @@ export function AudioMenu() {
       >
         <button
           onClick={(e) => { e.stopPropagation(); toggle(); }}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-l-full transition-colors duration-200"
+          className="flex items-center gap-1.5 px-3 py-1.5 transition-colors duration-200"
           style={{
             fontFamily: "var(--font-body)",
             fontSize: "12px",
@@ -58,6 +58,29 @@ export function AudioMenu() {
           aria-label={isPlaying ? "Pause music" : "Play music"}
         >
           {isPlaying ? <Pause className="h-3.5 w-3.5 shrink-0" /> : <Play className="h-3.5 w-3.5 shrink-0" />}
+        </button>
+
+        <button
+          onClick={() => setLoopMode(loopMode === "one" ? "all" : "one")}
+          className="flex items-center px-3 py-1.5 transition-colors duration-200"
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "12px",
+            fontWeight: 600,
+            letterSpacing: "0.05em",
+            color: loopMode === "all" ? "#C084F0" : "#E0E0FF",
+            border: "none",
+            cursor: "pointer",
+            background: "transparent",
+            borderInlineStart: "1px solid rgba(192,132,240,0.2)",
+          }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#FFFFFF"; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = loopMode === "all" ? "#C084F0" : "#E0E0FF"; }}
+          aria-label={t(loopMode === "one" ? "loopOne" : "loopAll")}
+        >
+          {loopMode === "one"
+            ? <Repeat1 className="h-3.5 w-3.5 shrink-0" />
+            : <Repeat className="h-3.5 w-3.5 shrink-0" />}
         </button>
 
         <button

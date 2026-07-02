@@ -58,7 +58,9 @@
     "version": "GTimer v1.0 · gtimer.app",
     "closeModal": "設定を閉じる",
     "appearanceDark": "ダーク",
-    "appearanceLight": "ライト"
+    "appearanceLight": "ライト",
+    "loopOne": "1曲リピート",
+    "loopAll": "すべてリピート"
   },
   "share": {
     "title": "GTimerをシェア",
