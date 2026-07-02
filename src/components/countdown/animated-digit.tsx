@@ -65,6 +65,7 @@ export function AnimatedDigit({ value, label, digits = 2 }: AnimatedDigitProps) 
                   duration: 0.3,
                   ease: [0.22, 1, 0.36, 1],
                 }}
+                suppressHydrationWarning
                 style={{
                   fontFamily: "var(--font-display)",
                   fontSize: "clamp(36px, 5.5vw, 60px)",

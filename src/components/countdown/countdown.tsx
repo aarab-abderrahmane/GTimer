@@ -36,6 +36,7 @@ function FinalSeconds({ seconds, onTick }: { seconds: number; onTick: () => void
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.6, opacity: 0 }}
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          suppressHydrationWarning
           style={{
             fontFamily: "var(--font-display)",
             fontSize: "clamp(120px, 22vw, 220px)",
@@ -172,6 +173,7 @@ export function Countdown({ time }: { time: CountdownTime }) {
             }}
           />
           <span
+            suppressHydrationWarning
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(24px, 3.5vw, 38px)",
