@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { Barlow_Condensed, Barlow, Noto_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
@@ -131,6 +132,7 @@ export default async function LocaleLayout({
             }).replace(/</g, "\\u003c"),
           }}
         />
+        <Analytics />
       </body>
     </html>
   );
