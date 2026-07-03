@@ -20,6 +20,28 @@ export function Footer() {
     >
       <div className="flex flex-wrap items-center justify-center" style={{ gap: "24px" }}>
         <Link
+          href="/about"
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "11px",
+            fontWeight: 700,
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            color: "#9999BB",
+            textDecoration: "none",
+            transition: "color 300ms",
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLElement).style.color = "#E0E0FF";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLElement).style.color = "#9999BB";
+          }}
+        >
+          {tn("about")}
+        </Link>
+        <span style={{ color: "rgba(192,132,240,0.25)", fontSize: "11px" }}>|</span>
+        <Link
           href="/privacy"
           style={{
             fontFamily: "var(--font-body)",

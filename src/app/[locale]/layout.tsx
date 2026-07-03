@@ -13,7 +13,7 @@ import { Footer } from "@/components/layout/footer";
 import { DirectionProvider } from "@/components/layout/direction-provider";
 import { getDirection } from "@/lib/direction";
 import { getOgLocale } from "@/lib/seo";
-import { SITE_NAME, SITE_URL } from "@/lib/constants";
+import { SITE_NAME, SITE_URL, LOCALES } from "@/lib/constants";
 
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
@@ -45,6 +45,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: t("description"),
     openGraph: {
       locale: ogLocale,
+    },
+    alternates: {
+      canonical: `${SITE_URL}/${locale}`,
+      languages: Object.fromEntries(
+        LOCALES.map((l) => [l, `${SITE_URL}/${l}`]),
+      ),
     },
   };
 }
@@ -128,6 +134,25 @@ export default async function LocaleLayout({
                 "@type": "Offer",
                 price: "0",
                 priceCurrency: "USD",
+              },
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Event",
+              name: "Grand Theft Auto VI Release",
+              description: "Grand Theft Auto VI is scheduled for release on November 19, 2026",
+              startDate: "2026-11-19T00:00:00Z",
+              eventStatus: "https://schema.org/EventScheduled",
+              eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+              organizer: {
+                "@type": "Organization",
+                name: "Rockstar Games",
+                url: "https://www.rockstargames.com",
               },
             }).replace(/</g, "\\u003c"),
           }}

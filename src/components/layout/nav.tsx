@@ -19,6 +19,7 @@ const LocalizationMenu = dynamic(
 const links = [
   { href: "", label: "home" },
   { href: "/extension", label: "extension" },
+  { href: "/about", label: "about" },
 ] as const;
 
 export function Nav() {
@@ -168,6 +169,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { href: "/",          labelKey: "home"      },
   { href: "/extension", labelKey: "extension" },
+  { href: "/about",     labelKey: "about"     },
   { href: "/privacy",   labelKey: "privacy"   },
   { href: "/terms",     labelKey: "terms"     },
 ];

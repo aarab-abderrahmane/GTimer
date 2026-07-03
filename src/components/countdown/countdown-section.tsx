@@ -34,6 +34,7 @@ export function CountdownSection({
 }: CountdownSectionProps) {
   const [showQR, setShowQR] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const t = useTranslations("countdown");
   const ts = useTranslations("share");
@@ -51,11 +52,18 @@ export function CountdownSection({
     logoUrl: "/images/gta-vi-logo.png" 
   }), [time.days, time.hours, time.minutes, time.seconds, timezone, timezoneOffset, country.flag]);
 
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
   // Staggered scroll-reveal on mount
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  const v = (delay: string) =>
+    hydrated ? `${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} transition-all duration-700` : "opacity-100 translate-y-0";
 
   return (
     <section
@@ -110,8 +118,8 @@ export function CountdownSection({
         {/* Hero headline */}
         <h1
           className={cn(
-            "mb-4 transition-all duration-700",
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+            "mb-4",
+            v("100ms"),
           )}
           style={{
             fontFamily: "var(--font-display)",
@@ -121,7 +129,7 @@ export function CountdownSection({
             textTransform: "uppercase",
             lineHeight: 1,
             color: "#FFFFFF",
-            transitionDelay: "100ms",
+            transitionDelay: hydrated ? "100ms" : "0ms",
           }}
         >
           {heading}
@@ -147,10 +155,10 @@ export function CountdownSection({
         {/* VI Loader Animation */}
         <div
           className={cn(
-            "mb-6 transition-all duration-700",
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+            "mb-6",
+            v("300ms"),
           )}
-          style={{ transitionDelay: "300ms", width: "100%", maxWidth: "clamp(280px, 50vw, 400px)" }}
+          style={{ transitionDelay: hydrated ? "300ms" : "0ms", width: "100%", maxWidth: "clamp(280px, 50vw, 400px)" }}
         >
           <VILoader />
         </div>
@@ -158,10 +166,9 @@ export function CountdownSection({
         {/* Countdown digits */}
         <div
           className={cn(
-            "transition-all duration-700",
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+            v("400ms"),
           )}
-          style={{ transitionDelay: "400ms" }}
+          style={{ transitionDelay: hydrated ? "400ms" : "0ms" }}
         >
           <Countdown time={time} />
         </div>
@@ -169,10 +176,10 @@ export function CountdownSection({
         {/* Release date + timezone */}
         <div
           className={cn(
-            "mt-10 flex flex-col items-center gap-4 transition-all duration-700",
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+            "mt-10 flex flex-col items-center gap-4",
+            v("500ms"),
           )}
-          style={{ transitionDelay: "500ms" }}
+          style={{ transitionDelay: hydrated ? "500ms" : "0ms" }}
         >
         
 
@@ -216,10 +223,10 @@ export function CountdownSection({
         <div className="flex flex-col items-center gap-4 mt-10">
           <div
             className={cn(
-              "flex flex-wrap items-center justify-center gap-4 transition-all duration-700",
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+              "flex flex-wrap items-center justify-center gap-4",
+              v("600ms"),
             )}
-            style={{ transitionDelay: "600ms" }}
+            style={{ transitionDelay: hydrated ? "600ms" : "0ms" }}
           >
             {/* Primary CTA — hot pink pill */}
             <a

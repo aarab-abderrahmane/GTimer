@@ -6,6 +6,7 @@
   "nav": {
     "home": "首页",
     "extension": "扩展",
+    "about": "关于",
     "privacy": "隐私",
     "terms": "条款"
   },
@@ -113,5 +114,30 @@
     "description": "GTimer 是一个非官方的粉丝项目。我们与 Rockstar Games 或 Take-Two Interactive 无任何关联、认可或连接。",
     "trademarks": "所有商标、版权和知识产权均归其各自所有者所有。",
     "disclaimer": "倒计时按现状提供。虽然我们力求准确，但无法保证。"
+  },
+  "about": {
+    "title": "关于 GTA VI – 发布日期与倒计时",
+    "description": "了解 Grand Theft Auto VI 的发布日期、平台以及 GTimer 倒计时的工作原理。",
+    "heading": "关于 Grand Theft Auto VI",
+    "intro": "由 Rockstar Games 开发的 Grand Theft Auto VI 是传奇 GTA 系列的下一部作品。游戏设定在虚构的雷奥尼达州——霓虹闪烁的罪恶都市及其周边地区——GTA VI 将带来 Rockstar 有史以来最大、最沉浸的开放世界。",
+    "releaseLabel": "发布日期",
+    "releaseInfo": "GTA VI 将于 2026 年 11 月 19 日在 PlayStation 5 和 Xbox Series X|S 上发售。PC 版本预计稍后推出。",
+    "platformsLabel": "平台",
+    "platformsInfo": "PlayStation 5、Xbox Series X|S。PC 版本随后推出。",
+    "countdownLabel": "关于倒计时",
+    "countdownInfo": "GTimer 实时追踪距离 GTA VI 发布的确切时间，并自动调整到您的时区。倒计时每毫秒更新一次，精确无误。",
+    "faq": "常见问题",
+    "faqQ1": "GTA 6 什么时候发售？",
+    "faqA1": "Grand Theft Auto VI 计划于 2026 年 11 月 19 日发布。",
+    "faqQ2": "距离 GTA 6 发布还有多久？",
+    "faqA2": "使用此页面上的倒计时查看距离 GTA VI 发布的确切天数、小时、分钟和秒数。",
+    "faqQ3": "GTA 6 将在哪些平台上发布？",
+    "faqA3": "GTA VI 将在 PlayStation 5 和 Xbox Series X|S 上发布。PC 版本尚未正式公布。",
+    "faqQ4": "GTA 6 倒计时准确吗？",
+    "faqA4": "是的 — GTimer 使用您设备的本地时间精确倒计时至 Rockstar Games 的官方发布日期 2026 年 11 月 19 日。",
+    "faqQ5": "下一个 GTA 6 预告片什么时候发布？",
+    "faqA5": "Rockstar Games 尚未公布下一个预告片的日期。请关注 Rockstar 官方渠道获取最新信息。",
+    "faqQ6": "GTA 6 会有单人故事模式吗？",
+    "faqA6": "是的，GTA VI 预计将包含单人故事模式，据传以罪恶都市及周边地区为背景，拥有多位主角。"
   }
 }

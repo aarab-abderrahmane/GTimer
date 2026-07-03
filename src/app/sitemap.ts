@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL, LOCALES } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/extension", "/privacy", "/terms"];
+  const staticPages = ["", "/extension", "/about", "/privacy", "/terms"];
 
   return LOCALES.flatMap((locale) =>
     staticPages.map((page) => ({

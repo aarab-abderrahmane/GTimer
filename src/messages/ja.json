@@ -6,6 +6,7 @@
   "nav": {
     "home": "ホーム",
     "extension": "拡張機能",
+    "about": "概要",
     "privacy": "プライバシー",
     "terms": "利用規約"
   },
@@ -113,5 +114,30 @@
     "description": "GTimerは非公式のファンプロジェクトです。当サイトはRockstar GamesやTake-Two Interactiveとは提携、承認、または関連していません。",
     "trademarks": "すべての商標、著作権、知的財産はそれぞれの所有者に帰属します。",
     "disclaimer": "カウントダウンは現状のまま提供されます。正確性には努めていますが、保証するものではありません。"
+  },
+  "about": {
+    "title": "GTA VIについて – 発売日とカウントダウン",
+    "description": "GTA VIの発売日、プラットフォーム、GTimerカウントダウンの仕組みについて知っておくべきすべて。",
+    "heading": "グランド・セフト・オートVIについて",
+    "intro": "Rockstar Gamesが開発するGrand Theft Auto VIは、伝説的なGTAシリーズの最新作です。ネオン輝くバイスシティをはじめとする架空のレオニダ州を舞台に、GTA VIはRockstarがこれまでに構築した中で最大かつ最も没入感のあるオープンワールドを約束します。",
+    "releaseLabel": "発売日",
+    "releaseInfo": "GTA VIは2026年11月19日にPlayStation 5とXbox Series X|Sで発売予定です。PC版は後日リリースが見込まれています。",
+    "platformsLabel": "プラットフォーム",
+    "platformsInfo": "PlayStation 5、Xbox Series X|S。PC版は後日。",
+    "countdownLabel": "カウントダウンについて",
+    "countdownInfo": "GTimerはGTA VIの発売日までの正確な時間をリアルタイムで追跡し、自動的にあなたのタイムゾーンに調整します。カウントダウンは毎ミリ秒更新されます。",
+    "faq": "よくある質問",
+    "faqQ1": "GTA 6はいつ発売されますか？",
+    "faqA1": "Grand Theft Auto VIは2026年11月19日に発売予定です。",
+    "faqQ2": "GTA 6の発売まであとどのくらいですか？",
+    "faqA2": "このページのカウントダウンを使用して、GTA VIの発売までの残り日数、時間、分、秒を正確に確認してください。",
+    "faqQ3": "GTA 6はどのプラットフォームでプレイできますか？",
+    "faqA3": "GTA VIはPlayStation 5とXbox Series X|Sで発売されます。PC版はまだ正式に発表されていません。",
+    "faqQ4": "GTA 6のカウントダウンは正確ですか？",
+    "faqA4": "はい — GTimerはRockstar Gamesの公式発売日である2026年11月19日まで、お使いのデバイスの現地時間を使用して正確にカウントダウンします。",
+    "faqQ5": "次のGTA 6のトレーラーはいつですか？",
+    "faqA5": "Rockstar Gamesは次のトレーラーの日付を発表していません。Rockstarの公式チャンネルで最新情報をチェックしてください。",
+    "faqQ6": "GTA 6にはシングルプレイヤーストーリーがありますか？",
+    "faqA6": "はい、GTA VIにはシングルプレイヤーストーリーモードが含まれる予定で、バイスシティとその周辺地域を舞台に、複数の主人公が登場すると報じられています。"
   }
 }

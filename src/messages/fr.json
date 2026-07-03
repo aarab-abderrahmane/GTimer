@@ -6,6 +6,7 @@
   "nav": {
     "home": "Accueil",
     "extension": "Extension",
+    "about": "À propos",
     "privacy": "Confidentialité",
     "terms": "Conditions"
   },
@@ -113,5 +114,30 @@
     "description": "GTimer est un projet fan non officiel. Nous ne sommes pas affiliés, approuvés ou connectés à Rockstar Games ou Take-Two Interactive.",
     "trademarks": "Toutes les marques déposées, droits d'auteur et propriété intellectuelle appartiennent à leurs propriétaires respectifs.",
     "disclaimer": "Le compte à rebours est fourni tel quel. Bien que nous nous efforcions d'être précis, nous ne pouvons pas le garantir."
+  },
+  "about": {
+    "title": "À propos de GTA VI – Date de sortie et compte à rebours",
+    "description": "Tout ce que vous devez savoir sur la date de sortie de GTA VI, les plateformes et le fonctionnement du compte à rebours GTimer.",
+    "heading": "À propos de Grand Theft Auto VI",
+    "intro": "Grand Theft Auto VI, développé par Rockstar Games, est le prochain opus de la légendaire série GTA. Situé dans l'État fictif de Leonida — abritant Vice City et ses néons — GTA VI promet le monde ouvert le plus vaste et le plus immersif jamais créé par Rockstar.",
+    "releaseLabel": "Date de sortie",
+    "releaseInfo": "GTA VI sortira le 19 novembre 2026 sur PlayStation 5 et Xbox Series X|S. Une version PC est attendue ultérieurement.",
+    "platformsLabel": "Plateformes",
+    "platformsInfo": "PlayStation 5, Xbox Series X|S. Version PC à suivre.",
+    "countdownLabel": "À propos du compte à rebours",
+    "countdownInfo": "GTimer suit en temps réel le temps restant jusqu'à la sortie de GTA VI, en s'adaptant automatiquement à votre fuseau horaire. Le compte à rebours se met à jour chaque milliseconde.",
+    "faq": "Questions fréquentes",
+    "faqQ1": "Quand sort GTA 6 ?",
+    "faqA1": "Grand Theft Auto VI est prévu pour le 19 novembre 2026.",
+    "faqQ2": "Combien de temps reste-t-il avant la sortie de GTA 6 ?",
+    "faqA2": "Utilisez le compte à rebours sur cette page pour voir les jours, heures, minutes et secondes exacts restants avant la sortie de GTA VI.",
+    "faqQ3": "Sur quelles plateformes GTA 6 sera-t-il disponible ?",
+    "faqA3": "GTA VI sortira sur PlayStation 5 et Xbox Series X|S. Une version PC n'a pas encore été officiellement annoncée.",
+    "faqQ4": "Le compte à rebours GTA 6 est-il précis ?",
+    "faqA4": "Oui — GTimer compte à rebours jusqu'à la date de sortie officielle de Rockstar Games, le 19 novembre 2026, en utilisant l'heure locale de votre appareil.",
+    "faqQ5": "Quand sort la prochaine bande-annonce de GTA 6 ?",
+    "faqA5": "Rockstar Games n'a pas annoncé de date pour la prochaine bande-annonce. Restez à l'écoute des canaux officiels de Rockstar.",
+    "faqQ6": "GTA 6 aura-t-il un mode histoire solo ?",
+    "faqA6": "Oui, GTA VI devrait proposer un mode histoire solo, apparemment situé à Vice City et ses environs, avec plusieurs protagonistes."
   }
 }
